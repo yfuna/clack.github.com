@@ -2,13 +2,14 @@
 
 body {
   font-size: 14pt;
-  margin: 40px 150px;
+  margin: 0 150px 40px;
   line-height: 150%;
   font-family: Georgia, 'bitstream vera serif', serif;
 }
 
 h1 {
   font-size: 48pt;
+  margin-top: 40px;
   margin-bottom: 0;
 }
 
