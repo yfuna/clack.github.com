@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+body {
+  font-size: 14pt;
+  margin: 0 150px;
+  line-height: 150%;
+}
+
+h1 {
+  font-size: 48pt;
+}
+
+h2 {
+  font-size: 24pt;
+}
+
+#title {
+  position: relative;
+}
+
+.tagline {
+  position: fixed;
+  top: 44pt;
+  left: 180px;
+  color: #888;
+  font-size: 0.9em;
+}
