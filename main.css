@@ -8,20 +8,15 @@ body {
 
 h1 {
   font-size: 48pt;
+  margin-bottom: 0;
 }
 
 h2 {
   font-size: 24pt;
 }
 
-#title {
-  position: relative;
-}
-
 .tagline {
-  position: fixed;
-  top: 44pt;
-  left: 180px;
+  margin: 0.4em auto auto 20px;
   color: #888;
   font-size: 0.9em;
 }
