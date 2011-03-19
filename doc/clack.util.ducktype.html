@@ -1,0 +1,30 @@
+<html><head><title>Clack.Util.Ducktype - Clack API Reference</title><link href="doc.css" rel="stylesheet" type="text/css"></head><body><h1>Clack.Util.Ducktype - Duck-typing with Common Lisp. </h1><h2>SYNOPSIS</h2><pre><code>;; hoge  
+(defpackage hoge  
+  (:use :cl)  
+  (:export :&lt;hoge&gt;))  
+(in-package :hoge)  
+(defclass &lt;hoge&gt; () ())  
+(defmethod call ((this &lt;hoge&gt;)))  
+ 
+;; fuga  
+(defpackage fuga  
+  (:use :cl)  
+  (:export :&lt;fuga&gt;))  
+(in-package :fuga)  
+(defclass &lt;fuga&gt; () ())  
+(defmethod call ((this &lt;fuga&gt;)))  
+ 
+;; main  
+(defpackage main  
+  (:use :cl  
+        :hoge  
+        :fuga  
+        :clack.util.ducktype))  
+(in-package :main)  
+ 
+(enable-duck-reader)  
+ 
+(&amp;call (make-instance '&lt;hoge&gt;))  
+(&amp;call (make-instance '&lt;fuga&gt;))  
+ 
+(disable-duck-reader) </code></pre><h2>DESCRIPTION</h2><p>Clack.Util.Ducktype provides a way to call different objects which have a same name method, like duck-typing. These objects are no need to inherit each other. </p><p>This reader macro seems useful for Clack development, but, isn't used in Core now. </p><h2>AUTHOR</h2><ul><li>Eitarow Fukamachi (e.arrows@gmail.com)</li></ul><h2>EXTERNAL SYMBOLS</h2><div class="symbol"> <ul><li>Function: <strong> duck-function</strong>  [fn obj]<pre> Detect correct function for `obj'.<br /> The function should be interned a package which exports a class of `obj'.</pre></li><li>Macro: <strong> duckcall</strong>  [fn obj &amp;body body]<pre> Call `duck-function' of the `obj'.<br /> I supposed `enable-duck-reader' may help you.</pre></li><li>Macro: <strong> duckapply</strong>  [fn obj &amp;body body]<pre> Apply `duck-function' of the `obj'.<br /> I supposed `enable-duck-reader' may help you.</pre></li><li>Macro: <strong> enable-duck-reader</strong> <pre> Enable duck-typing-reader.<br /> <br /> Example:<br />   (&amp;call app req)</pre></li><li>Macro: <strong> disable-duck-reader</strong> <pre> Disable duck-typing-reader if it is enabled.</pre>  </div>  </li></ul></body></html>
