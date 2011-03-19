@@ -1,0 +1,11 @@
+<html><head><title>Clack.Middleware.Auth.Basic - Clack API Reference</title><link href="doc.css" rel="stylesheet" type="text/css"></head><body><h1>Clack.Middleware.Auth.Basic - Basic Authentication Middleware. </h1><h2>SYNOPSIS</h2><pre><code>(clackup  
+ (builder  
+  (&lt;clack-middleware-auth-basic&gt;  
+   :authenticator #'(lambda (user pass)  
+                      (and (string= user "hoge")  
+                           (string= pass "fuga"))))  
+  app)) </code></pre><h2>DESCRIPTION</h2><p>Clack.Middleware.Auth.Basic allows to basic authenticate simply. All you have to do is pass a function to authenticate to <code>&lt;clack-middleware-auth-basic&gt;</code>, <code>:authenticator</code>. </p><pre><code>(make-instance '&lt;clack-middleware-auth-basic&gt;  
+   :authenticator  
+   #'(lambda (user pass)  
+       ;; Authenticate here and return t or nil.  
+       )) </code></pre><h2>AUTHOR</h2><ul><li>Eitarow Fukamachi (e.arrows@gmail.com)</li></ul><h2>EXTERNAL SYMBOLS</h2><div class="symbol"> <ul><li>Class: <strong>&lt;clack-middleware-auth-basic&gt;</strong> inherits (&lt;middleware&gt;)<pre> Clack Middleware to authenticate.</pre></li></ul><dl><dt> <strong> authenticator</strong>  Accessor: authenticator</small> </dt> <dt> <strong> realm</strong>  Accessor: realm</small> </dt> </dl>  <ul><li>Method: <strong> call</strong>  [(this &lt;clack-middleware-auth-basic&gt;) req] </div>  </li></ul></body></html>
