@@ -10,7 +10,7 @@ $ vi ~/.config/common-lisp/source-registry.conf.d/01-add-local-lisp.conf </code>
 $ git clone git://github.com/arielnetworks/cl-annot  
 $ git clone git://github.com/fukamachi/clack </code></pre><h3>3. Load</h3><p>In the end, you can load Clack with <a href="https://www.quicklisp.org/beta/">Quicklisp</a>. </p><pre><code>(ql:quickload :clack) </code></pre><h2>Application</h2><p>Clack Application is just a lambda. It takes exactly one argument, the "Request", and returns the "Response" as a list containing exactly three values. </p><pre><code>(defvar app  
   #'(lambda (req)  
-      '(200 (:content-type "text/plain") ("Hello, World")))) </code></pre><h3>Clack.App.Route</h3><p>Clack is not a Web Application Framework. But Clack can also be used as such way. </p><p>Clack bundles "Clack.App.Route", written by <a href="http://twitter.com/#!/m2ym">Tomohiro Matsuyama</a>. It allows you to write an URL-based dispatcher, like Ruby's Sinatra. </p><pre><code>(defroute app (req)  
+      '(200 (:content-type "text/plain") ("Hello, World")))) </code></pre><h3>Clack.App.Route</h3><p>Clack is not a Web Application Framework. But Clack can also be used as such way. </p><p>Clack bundles "Clack.App.Route", written by <a href="http://twitter.com/#!/m2ym">Tomohiro Matsuyama</a>. It allows you to write an URL-based dispatcher, like Ruby's Sinatra. </p><pre><code>(defroutes app (req)  
   (GET \"/\" #'index)  
   (GET \"/login\" #'login)  
   (POST \"/login\" #'authorize)  
