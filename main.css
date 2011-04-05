@@ -18,6 +18,10 @@ h1 a {
   text-decoration: none;
 }
 
+a img {
+  border: none;
+}
+
 h2 {
   font-size: 24pt;
 }
