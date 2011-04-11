@@ -27,3 +27,22 @@ h2 {
   color: #888;
   font-size: 0.9em;
 }
+
+a:link {
+	color: #005585;
+}
+
+a:visited {
+	color: #485270;
+}
+
+a:hover {
+	color: #b83800;
+}
+
+pre {
+  padding: 8px;
+  background-color: #eee;
+  line-height: normal;
+  white-space: pre-wrap;
+}
