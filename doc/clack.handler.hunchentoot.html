@@ -25,7 +25,7 @@
 
 <li>
   Function: <strong>run</strong>
-[app &key debug (port 5000)]
+[app &amp;key debug (port 5000)]
 
 <pre>
   Start Hunchentoot server.
@@ -48,14 +48,14 @@ If no acceptor given, try to stop `*acceptor*' by default.
 
 <li>
   Method: <strong>process-connection</strong>
-[(*acceptor* <debuggable-acceptor>) (socket t)]
+[(*acceptor* &lt;debuggable-acceptor&gt;) (socket t)]
 
 
 </li>
 
 <li>
   Method: <strong>acceptor-request-dispatcher</strong>
-[(*acceptor* <debuggable-acceptor>)]
+[(*acceptor* &lt;debuggable-acceptor&gt;)]
 
 
 </li>

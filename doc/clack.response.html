@@ -36,7 +36,7 @@
   <ul>
 
 <li>
-  Class: <strong><response></strong> inherits ((standard-object))
+  Class: <strong>&lt;response&gt;</strong> inherits ((standard-object))
 
 <pre>
   Portable HTTP Response object for Clack response.
@@ -62,14 +62,14 @@
 
 <li>
   Method: <strong>initialize-instance</strong>
-[(res <response>) &key]
+[(res &lt;response&gt;) &amp;key]
 
 
 </li>
 
 <li>
   Function: <strong>make-response</strong>
-[&optional status headers body]
+[&amp;optional status headers body]
 
 <pre>
   A synonym for (make-instance '<response> ...).
@@ -81,7 +81,7 @@ Create a <response> instance.
 
 <li>
   Method: <strong>headers</strong>
-[(res <response>) &optional name]
+[(res &lt;response&gt;) &amp;optional name]
 
 <pre>
   Get whole of headers or header value of given name.
@@ -98,7 +98,7 @@ Example:
 
 <li>
   Method: <strong>push-header</strong>
-[(res <response>) name value]
+[(res &lt;response&gt;) name value]
 
 <pre>
   Push the given header pair into response headers.
@@ -110,7 +110,7 @@ Example: (push-header res :content-type "text/html")
 
 <li>
   Method: <strong>set-cookies</strong>
-[(res <response>) &optional name]
+[(res &lt;response&gt;) &amp;optional name]
 
 <pre>
   Get whole of set-cookies plist or the set-cookie value of given name.
@@ -127,7 +127,7 @@ Example:
 
 <li>
   Method: <strong>redirect</strong>
-[(res <response>) url &optional (status 302)]
+[(res &lt;response&gt;) url &amp;optional (status 302)]
 
 <pre>
   Set headers for redirecting to given url.
@@ -138,7 +138,7 @@ Example:
 
 <li>
   Method: <strong>finalize</strong>
-[(res <response>)]
+[(res &lt;response&gt;)]
 
 <pre>
   Return a Clack response list containing three values, status, headers and body.

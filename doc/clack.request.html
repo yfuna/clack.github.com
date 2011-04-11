@@ -20,7 +20,7 @@
   <ul>
 
 <li>
-  Class: <strong><request></strong> inherits ((standard-object))
+  Class: <strong>&lt;request&gt;</strong> inherits ((standard-object))
 
 <pre>
   Portable HTTP Request object for Clack Request.
@@ -101,7 +101,7 @@ Typically this will be something like :HTTP/1.0 or :HTTP/1.1.</dd>
 
 <li>
   Method: <strong>initialize-instance</strong>
-[(this <request>) &key]
+[(this &lt;request&gt;) &amp;key]
 
 
 </li>
@@ -120,14 +120,14 @@ Make a <request> instance from request plist.
 
 <li>
   Method: <strong>securep</strong>
-[(req <request>)]
+[(req &lt;request&gt;)]
 
 
 </li>
 
 <li>
   Method: <strong>cookies</strong>
-[(req <request>) &optional name]
+[(req &lt;request&gt;) &amp;optional name]
 
 <pre>
   Returns cookies as a plist. If optional `name' is specified, returns the value corresponds to it.
@@ -138,7 +138,7 @@ Make a <request> instance from request plist.
 
 <li>
   Method: <strong>body-parameter</strong>
-[(req <request>) &optional name]
+[(req &lt;request&gt;) &amp;optional name]
 
 <pre>
   Return POST parameters as a plist. If optional `name' is specified, returns the value corresponds to it.
@@ -149,7 +149,7 @@ Make a <request> instance from request plist.
 
 <li>
   Method: <strong>query-parameter</strong>
-[(req <request>) &optional name]
+[(req &lt;request&gt;) &amp;optional name]
 
 <pre>
   Returns GET parameters as a plist. If optional `name' is specified, returns the value corresponds to it.
@@ -160,7 +160,7 @@ Make a <request> instance from request plist.
 
 <li>
   Method: <strong>parameter</strong>
-[(req <request>) &optional name]
+[(req &lt;request&gt;) &amp;optional name]
 
 <pre>
   Returns request parameters containing (merged) GET and POST parameters. If optional `name' is specified, returns the value corresponds to it.
