@@ -1,14 +1,21 @@
-<html><head><title>Clack - Web Application Environment for Common Lisp</title><link href="doc.css" rel="stylesheet" type="text/css"></head><body><h1>Clack - Web Application Environment for Common Lisp</h1><p>Clack is a Web Application Environment for Common Lisp inspired by Python's WSGI and Ruby's Rack. Your awesome framework should base on this. </p><h2>Usage</h2><pre><code>(defpackage simple-app  
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>clack - Web Application Environment for Common Lisp</title>
+  <link rel="stylesheet" href="./main.css" type="text/css" media="screen, tv, print" charset="UTF-8" />
+</head>
+<body>
+
+<h1>Clack - Web Application Environment for Common Lisp</h1><p>Clack is a Web Application Environment for Common Lisp inspired by Python's WSGI and Ruby's Rack. Your awesome framework should base on this. </p><h2>Usage</h2><pre><code>(defpackage simple-app  
   (:use :cl  
         :clack))  
 (in-package :simple-app)  
  
 (clackup  
   #'(lambda (req)  
-      '(200 (:content-type "text/plain") ("Hello, Clack!")))) </code></pre><p>Now access <a href="http://localhost:5000/">http://localhost:5000/</a> and Clack may show you "Hello, Clack!". </p><h2>Installation</h2><p>Though I want to keep the dependencies of Clack minimum, Clack depends on <a href="https://github.com/arielnetworks/cl-annot">cl-annot</a> heavily. </p><p>It is a really cool product written by <a href="http://twitter.com/#!/m2ym">Tomohiro Matsuyama</a>, my friend. So I recommend you to install it anyway. </p><p>Clack and cl-annot isn't in Quicklisp's repository yet (<a href="https://github.com/quicklisp/quicklisp-projects/issues/120">now on request</a>). Then you have to do following steps. </p><h3>1. Config ASDF</h3><pre><code>$ mkdir ~/lisp/systems  
-$ vi ~/.config/common-lisp/source-registry.conf.d/01-add-local-lisp.conf </code></pre><p>And write the following code. </p><pre><code>(:tree (:home "lisp/systems/")) </code></pre><p>Now, ASDF can find .asd from <code>~/lisp/systems/</code> or it's sub directories. </p><h3>2. Clone</h3><p>Download Clack and cl-annot from their repository and make sure they are in <code>~/lisp/systems/</code>. </p><pre><code>$ cd ~/lisp/systems  
-$ git clone git://github.com/fukamachi/clack  
-$ git clone git://github.com/arielnetworks/cl-annot </code></pre><h3>3. Load</h3><p>In the end, you can load Clack with <a href="https://www.quicklisp.org/beta/">Quicklisp</a>. </p><pre><code>(ql:quickload :clack) </code></pre><h2>Application</h2><p>Clack Application is just a lambda. It takes exactly one argument, the "Request", and returns the "Response" as a list containing exactly three values. </p><pre><code>(defvar app  
+      '(200 (:content-type "text/plain") ("Hello, Clack!")))) </code></pre><p>Now access <a href="http://localhost:5000/">http://localhost:5000/</a> and Clack may show you "Hello, Clack!". </p><h2>Installation</h2><p>Clack is now available on <a href="https://www.quicklisp.org/beta/">Quicklisp</a>. </p><pre><code>(ql:quickload :clack) </code></pre><h2>Application</h2><p>Clack Application is just a lambda. It takes exactly one argument, the "Request", and returns the "Response" as a list containing exactly three values. </p><pre><code>(defvar app  
   #'(lambda (req)  
       '(200 (:content-type "text/plain") ("Hello, World")))) </code></pre><h3>Clack.App.Route</h3><p>Clack is not a Web Application Framework. But Clack can also be used as such way. </p><p>Clack bundles "Clack.App.Route", written by <a href="http://twitter.com/#!/m2ym">Tomohiro Matsuyama</a>. It allows you to write an URL-based dispatcher, like Ruby's Sinatra. </p><pre><code>(defroutes app (req)  
   (GET \"/\" #'index)  
@@ -56,4 +63,187 @@ $ git clone git://github.com/arielnetworks/cl-annot </code></pre><h3>3. Load</h3
       '(200 (:content-type "text/plain") ("Hello, Clack!"))))  
  
 (clackup (builder &lt;simple-middleware&gt; app)) </code></pre><p>And you should get following response in time. </p><pre><code>Hello, Clack Middleware!  
-Hello, Clack! </code></pre><h2>Dependency</h2><ul><li>cl-annot</li><li>CL-PPCRE</li><li>CL-FAD</li><li>Alexandria</li><li>SPLIT-SEQUENCE</li><li>Anaphora</li><li>metabang-bind</li><li>Hunchentoot</li><li>modlisp</li><li>cl-oauth</li></ul><h2>Author</h2><ul><li>Eitarow Fukamachi (e.arrows@gmail.com)</li></ul><h2>Copyright</h2><p>Copyright (c) 2011 Eitarow Fukamachi </p><h2>Contributors</h2><ul><li>Tomohiro Matsuyama (tomo@cx4a.org)</li><li>Norihisa Fujita (n.fujita@ariel-networks.com)</li></ul><h2>License</h2><p>Licensed under the LLGPL License. </p><h2>API Reference</h2><ul><li><a href="clack.html">Clack</a></li><li><a href="clack.builder.html">Clack.Builder</a></li><li><a href="clack.request.html">Clack.Request</a></li><li><a href="clack.response.html">Clack.Response</a></li><li><a href="clack.component.html">Clack.Component</a></li><li><a href="clack.middleware.html">Clack.Middleware</a></li><li><a href="clack.handler.hunchentoot.html">Clack.Handler.Hunchentoot</a></li><li><a href="clack.test.html">Clack.Test</a></li><li><a href="clack.test.suite.html">Clack.Test.Suite</a></li><li><a href="clack.app.file.html">Clack.App.File</a></li><li><a href="clack.logger.html">Clack.Logger</a></li><li><a href="clack.logger.base.html">Clack.Logger.Base</a></li><li><a href="clack.logger.stream.html">Clack.Logger.Stream</a></li><li><a href="clack.middleware.logger.html">Clack.Middleware.Logger</a></li><li><a href="clack.middleware.static.html">Clack.Middleware.Static</a></li><li><a href="clack.session.state.html">Clack.Session.State</a></li><li><a href="clack.session.state.cookie.html">Clack.Session.State.Cookie</a></li><li><a href="clack.session.store.html">Clack.Session.Store</a></li><li><a href="clack.middleware.session.html">Clack.Middleware.Session</a></li><li><a href="clack.middleware.auth.basic.html">Clack.Middleware.Auth.Basic</a></li><li><a href="clack.app.route.html">Clack.App.Route</a></li><li><a href="clack.middleware.oauth.html">Clack.Middleware.Oauth</a></li><li><a href="clack.middleware.clsql.html">Clack.Middleware.Clsql</a></li><li><a href="clack.util.doc.html">Clack.Util.Doc</a></li><li><a href="clack.util.html">Clack.Util</a></li><li><a href="clack.util.ducktype.html">Clack.Util.Ducktype</a></li><li><a href="clack.util.localtime.html">Clack.Util.Localtime</a></li><li><a href="clack.util.hunchentoot.html">Clack.Util.Hunchentoot</a></li></ul></body></html>
+Hello, Clack! </code></pre><h2>Dependency</h2><ul><li>cl-annot</li><li>CL-PPCRE</li><li>CL-FAD</li><li>Alexandria</li><li>SPLIT-SEQUENCE</li><li>Anaphora</li><li>metabang-bind</li><li>Hunchentoot</li><li>modlisp</li><li>cl-oauth</li></ul><h2>Author</h2><ul><li>Eitarow Fukamachi (e.arrows@gmail.com)</li></ul><h2>Copyright</h2><p>Copyright (c) 2011 Eitarow Fukamachi </p><h2>Contributors</h2><ul><li>Tomohiro Matsuyama (tomo@cx4a.org)</li><li>Norihisa Fujita (n.fujita@ariel-networks.com)</li></ul><h2>License</h2><p>Licensed under the LLGPL License. </p>
+
+<h2>API Reference</h2>
+
+<ul>
+
+  <li>
+    <a href="clack.html">
+      Clack
+    </a>
+  </li>
+
+  <li>
+    <a href="clack.builder.html">
+      Clack.Builder
+    </a>
+  </li>
+
+  <li>
+    <a href="clack.request.html">
+      Clack.Request
+    </a>
+  </li>
+
+  <li>
+    <a href="clack.response.html">
+      Clack.Response
+    </a>
+  </li>
+
+  <li>
+    <a href="clack.component.html">
+      Clack.Component
+    </a>
+  </li>
+
+  <li>
+    <a href="clack.middleware.html">
+      Clack.Middleware
+    </a>
+  </li>
+
+  <li>
+    <a href="clack.handler.hunchentoot.html">
+      Clack.Handler.Hunchentoot
+    </a>
+  </li>
+
+  <li>
+    <a href="clack.test.html">
+      Clack.Test
+    </a>
+  </li>
+
+  <li>
+    <a href="clack.test.suite.html">
+      Clack.Test.Suite
+    </a>
+  </li>
+
+  <li>
+    <a href="clack.app.file.html">
+      Clack.App.File
+    </a>
+  </li>
+
+  <li>
+    <a href="clack.logger.html">
+      Clack.Logger
+    </a>
+  </li>
+
+  <li>
+    <a href="clack.logger.base.html">
+      Clack.Logger.Base
+    </a>
+  </li>
+
+  <li>
+    <a href="clack.logger.stream.html">
+      Clack.Logger.Stream
+    </a>
+  </li>
+
+  <li>
+    <a href="clack.middleware.logger.html">
+      Clack.Middleware.Logger
+    </a>
+  </li>
+
+  <li>
+    <a href="clack.middleware.static.html">
+      Clack.Middleware.Static
+    </a>
+  </li>
+
+  <li>
+    <a href="clack.session.state.html">
+      Clack.Session.State
+    </a>
+  </li>
+
+  <li>
+    <a href="clack.session.state.cookie.html">
+      Clack.Session.State.Cookie
+    </a>
+  </li>
+
+  <li>
+    <a href="clack.session.store.html">
+      Clack.Session.Store
+    </a>
+  </li>
+
+  <li>
+    <a href="clack.middleware.session.html">
+      Clack.Middleware.Session
+    </a>
+  </li>
+
+  <li>
+    <a href="clack.middleware.auth.basic.html">
+      Clack.Middleware.Auth.Basic
+    </a>
+  </li>
+
+  <li>
+    <a href="clack.app.route.html">
+      Clack.App.Route
+    </a>
+  </li>
+
+  <li>
+    <a href="clack.middleware.oauth.html">
+      Clack.Middleware.Oauth
+    </a>
+  </li>
+
+  <li>
+    <a href="clack.middleware.clsql.html">
+      Clack.Middleware.Clsql
+    </a>
+  </li>
+
+  <li>
+    <a href="clack.middleware.rucksack.html">
+      Clack.Middleware.Rucksack
+    </a>
+  </li>
+
+  <li>
+    <a href="clack.util.doc.html">
+      Clack.Util.Doc
+    </a>
+  </li>
+
+  <li>
+    <a href="clack.util.html">
+      Clack.Util
+    </a>
+  </li>
+
+  <li>
+    <a href="clack.util.ducktype.html">
+      Clack.Util.Ducktype
+    </a>
+  </li>
+
+  <li>
+    <a href="clack.util.localtime.html">
+      Clack.Util.Localtime
+    </a>
+  </li>
+
+  <li>
+    <a href="clack.util.hunchentoot.html">
+      Clack.Util.Hunchentoot
+    </a>
+  </li>
+
+</ul>
+
+</body>
+</html>

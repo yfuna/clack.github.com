@@ -1,4 +1,14 @@
-<html><head><title>Clack.Test - Clack API Reference</title><link href="doc.css" rel="stylesheet" type="text/css"></head><body><h1>Clack.Test - Testing Clack Applications. </h1><h2>SYNOPSIS</h2><pre><code>(defpackage clack-test.sample  
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>CLACK.TEST</title>
+  <link rel="stylesheet" href="./main.css" type="text/css" media="screen, tv, print" charset="UTF-8" />
+</head>
+<body>
+
+<h1>Clack.Test - Testing Clack Applications. </h1><h2>SYNOPSIS</h2><pre><code>(defpackage clack-test.sample  
   (:use :cl  
         :clack.test  
         :cl-test-more  
@@ -15,4 +25,55 @@
      (is status 200)  
      (is body "Hello, Clack!")  
      (is (getf headers :content-type) "text/plain")))  
- "Testing simple application") </code></pre><h2>DESCRIPTION</h2><p>Clack.Test provides simple interface to test Clack Application or Middleware. </p><p>Your Lisp have to support multi-thread to run this. </p><h2>AUTHOR</h2><p>Eitarow Fukamachi (e.arrows@gmail.com) </p><h2>SEE ALSO</h2><ul><li><a href="https://github.com/fukamachi/cl-test-more">CL-TEST-MORE</a></li><li>Drakma</li></ul><h2>EXTERNAL SYMBOLS</h2><div class="symbol"> <ul><li>Variable: <strong> *clack-test-handler*</strong></li><li>Variable: <strong> *clack-test-port*</strong></li><li>Variable: <strong> *enable-debug-p*</strong></li><li>Function: <strong> test-app</strong>  [app client &amp;optional desc]<pre> Test Clack Application.</pre></li><li>Macro: <strong> define-app-test</strong>  [desc app client &amp;optional (enable-debug-p *enable-debug-p*)]<pre> Define tests for Clack Application. This just wrap `cl-test-more:deftest', so you can run this test by calling `(cl-test-more:run-test :foo)'.</pre>  </div>  </li></ul></body></html>
+ "Testing simple application") </code></pre><h2>DESCRIPTION</h2><p>Clack.Test provides simple interface to test Clack Application or Middleware. </p><p>Your Lisp have to support multi-thread to run this. </p><h2>AUTHOR</h2><p>Eitarow Fukamachi (e.arrows@gmail.com) </p><h2>SEE ALSO</h2><ul><li><a href="https://github.com/fukamachi/cl-test-more">CL-TEST-MORE</a></li><li>Drakma</li></ul>
+
+<h2>EXTERNAL SYMBOLS</h2>
+
+<div class="symbol">
+  <ul>
+
+<li>
+  Variable: <strong>*clack-test-handler*</strong>
+
+
+</li>
+
+<li>
+  Variable: <strong>*clack-test-port*</strong>
+
+
+</li>
+
+<li>
+  Variable: <strong>*enable-debug-p*</strong>
+
+
+</li>
+
+<li>
+  Function: <strong>test-app</strong>
+[app client &optional desc]
+
+<pre>
+  Test Clack Application.
+</pre>
+
+
+</li>
+
+<li>
+  Macro: <strong>define-app-test</strong>
+[desc app client &optional (enable-debug-p *enable-debug-p*)]
+
+<pre>
+  Define tests for Clack Application. This just wrap `cl-test-more:deftest', so you can run this test by calling `(cl-test-more:run-test :foo)'.
+</pre>
+
+
+</li>
+
+  </ul>
+</div>
+
+</body>
+</html>

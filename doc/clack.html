@@ -1,5 +1,58 @@
-<html><head><title>Clack - Clack API Reference</title><link href="doc.css" rel="stylesheet" type="text/css"></head><body><h1>Clack main package just for convenience. </h1><h2>SYNOPSIS</h2><pre><code>(clackup (lambda (req)  
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>CLACK</title>
+  <link rel="stylesheet" href="./main.css" type="text/css" media="screen, tv, print" charset="UTF-8" />
+</head>
+<body>
+
+<h1>Clack main package just for convenience. </h1><h2>SYNOPSIS</h2><pre><code>(clackup (lambda (req)  
            (declare (ignore req))  
            '(200 nil ("Hello, Clack!")))  
          :port 5000  
-         :debug t) </code></pre><h2>DESCRIPTION</h2><p>Contrary to your expextations, this package is not so significant. Just exporting symbols imported from Clack.Component and Clack.Middleware. </p><p>To avoid confusion, especially for beginner, why this package is. Most of peaple expect that there is a package that has the same as asdf:system. </p><p>Worthy of special mention is `clackup'. It provides easy way to run Clack Applications. </p><h2>AUTHOR</h2><ul><li>Eitarow Fukamachi (e.arrows@gmail.com)</li></ul><h2>SEE ALSO</h2><ul><li>Clack.Component</li><li>Clack.Middleware</li></ul><h2>EXTERNAL SYMBOLS</h2><div class="symbol"> <ul><li>Function: <strong> clackup</strong>  [app &amp;key (server :hunchentoot) (port 5000) (debug t)]<pre> Easy way to run Clack Application.<br /> You can specify backend server with passing `:server'. The default is `:hunchentoot'.<br /> <br /> Example:<br />   (clackup (lambda (req)<br />              (declare (ignore req))<br />              '(200 nil ("ok")))<br />            :port 5000<br />            :debug t)</pre></li><li>Function: <strong> stop</strong>  [acceptor &amp;key (server :hunchentoot)]<pre> Stop Clack server. Currently works only Hunchentoot.</pre>  </div>  </li></ul></body></html>
+         :debug t) </code></pre><h2>DESCRIPTION</h2><p>Contrary to your expextations, this package is not so significant. Just exporting symbols imported from Clack.Component and Clack.Middleware. </p><p>To avoid confusion, especially for beginner, why this package is. Most of peaple expect that there is a package that has the same as asdf:system. </p><p>Worthy of special mention is `clackup'. It provides easy way to run Clack Applications. </p><h2>AUTHOR</h2><ul><li>Eitarow Fukamachi (e.arrows@gmail.com)</li></ul><h2>SEE ALSO</h2><ul><li>Clack.Component</li><li>Clack.Middleware</li></ul>
+
+<h2>EXTERNAL SYMBOLS</h2>
+
+<div class="symbol">
+  <ul>
+
+<li>
+  Function: <strong>clackup</strong>
+[app &key (server :hunchentoot) (port 5000) (debug t)]
+
+<pre>
+  
+Easy way to run Clack Application.
+You can specify backend server with passing `:server'. The default is `:hunchentoot'.
+
+Example:
+  (clackup (lambda (req)
+             (declare (ignore req))
+             '(200 nil ("ok")))
+           :port 5000
+           :debug t)
+
+</pre>
+
+
+</li>
+
+<li>
+  Function: <strong>stop</strong>
+[acceptor &key (server :hunchentoot)]
+
+<pre>
+  Stop Clack server. Currently works only Hunchentoot.
+</pre>
+
+
+</li>
+
+  </ul>
+</div>
+
+</body>
+</html>

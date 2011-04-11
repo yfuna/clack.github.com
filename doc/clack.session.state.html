@@ -1,1 +1,82 @@
-<html><head><title>Clack.Session.State - Clack API Reference</title><link href="doc.css" rel="stylesheet" type="text/css"></head><body><h1>Clack.Session.State - Basic parameter-based session state. </h1><h2>DESCRIPTION</h2><p>Clack.Session.State maintains session state by passing the session through the request params. Usually you wouldn't use this because this cannot keep session through each HTTP request. This is just for creating new session state manager. </p><h2>AUTHOR</h2><p>Eitarow Fukamachi (e.arrows@gmail.com) </p><h2>SEE ALSO</h2><ul><li>Clack.Middleware.Session</li></ul><h2>EXTERNAL SYMBOLS</h2><div class="symbol"> <ul><li>Class: <strong>&lt;clack-session-state&gt;</strong> inherits (standard-object)</li></ul><dl><dt> <strong> session-key</strong>  Accessor: session-key</small> </dt> <dt> <strong> sid-generator</strong>  Accessor: sid-generator</small> </dt> <dt> <strong> sid-validator</strong>  Accessor: sid-validator</small> </dt> </dl>  <ul><li>Method: <strong> expire</strong>  [(this &lt;clack-session-state&gt;) id res &amp;optional options]</li><li>Method: <strong> session-id</strong>  [(this &lt;clack-session-state&gt;) req]</li><li>Method: <strong> valid-sid-p</strong>  [(this &lt;clack-session-state&gt;) id]</li><li>Method: <strong> extract-id</strong>  [(this &lt;clack-session-state&gt;) req]</li><li>Method: <strong> generate-id</strong>  [(this &lt;clack-session-state&gt;) &amp;rest args]</li><li>Method: <strong> finalize</strong>  [(this &lt;clack-session-state&gt;) id res options] </div>  </li></ul></body></html>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>CLACK.SESSION.STATE</title>
+  <link rel="stylesheet" href="./main.css" type="text/css" media="screen, tv, print" charset="UTF-8" />
+</head>
+<body>
+
+<h1>Clack.Session.State - Basic parameter-based session state. </h1><h2>DESCRIPTION</h2><p>Clack.Session.State maintains session state by passing the session through the request params. Usually you wouldn't use this because this cannot keep session through each HTTP request. This is just for creating new session state manager. </p><h2>AUTHOR</h2><p>Eitarow Fukamachi (e.arrows@gmail.com) </p><h2>SEE ALSO</h2><ul><li>Clack.Middleware.Session</li></ul>
+
+<h2>EXTERNAL SYMBOLS</h2>
+
+<div class="symbol">
+  <ul>
+
+<li>
+  Class: <strong><clack-session-state></strong> inherits ((standard-object))
+
+<dl>
+
+<dt><strong>session-key</strong> Accessor: session-key</small></dt>
+
+
+<dt><strong>sid-generator</strong> Accessor: sid-generator</small></dt>
+
+
+<dt><strong>sid-validator</strong> Accessor: sid-validator</small></dt>
+
+
+</dl>
+
+</li>
+
+<li>
+  Method: <strong>expire</strong>
+[(this <clack-session-state>) id res &optional options]
+
+
+</li>
+
+<li>
+  Method: <strong>session-id</strong>
+[(this <clack-session-state>) req]
+
+
+</li>
+
+<li>
+  Method: <strong>valid-sid-p</strong>
+[(this <clack-session-state>) id]
+
+
+</li>
+
+<li>
+  Method: <strong>extract-id</strong>
+[(this <clack-session-state>) req]
+
+
+</li>
+
+<li>
+  Method: <strong>generate-id</strong>
+[(this <clack-session-state>) &rest args]
+
+
+</li>
+
+<li>
+  Method: <strong>finalize</strong>
+[(this <clack-session-state>) id res options]
+
+
+</li>
+
+  </ul>
+</div>
+
+</body>
+</html>

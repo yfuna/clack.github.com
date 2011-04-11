@@ -1,1 +1,104 @@
-<html><head><title>Clack.Logger - Clack API Reference</title><link href="doc.css" rel="stylesheet" type="text/css"></head><body><h1>Clack.Logger - Logging utility for Clack. </h1><h2>AUTHOR</h2><p>Eitarow Fukamachi (e.arrows@gmail.com) </p><h2>SEE ALSO</h2><ul><li>Clack.Middleware.Logger</li></ul><h2>EXTERNAL SYMBOLS</h2><div class="symbol"> <ul><li>Variable: <strong> *logger-output*</strong></li><li>Variable: <strong> *logger-time-format*</strong></li><li>Variable: <strong> +debug+</strong></li><li>Variable: <strong> +info+</strong></li><li>Variable: <strong> +notice+</strong></li><li>Variable: <strong> +warning+</strong></li><li>Variable: <strong> +error+</strong></li><li>Variable: <strong> +critical+</strong></li><li>Variable: <strong> +alert+</strong></li><li>Variable: <strong> +emergency+</strong></li><li>Variable: <strong> *logger-min-level*</strong></li><li>Function: <strong> log-message</strong>  [level message]<pre> Output a log if the log level is more than `*logger-min-level*'.<br /> Log level must be a integer 0-7, or a keyword represents log level.<br /> <br /> Example:<br />   (log-message :warning "Something wrong.")</pre>  </div>  </li></ul></body></html>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>CLACK.LOGGER</title>
+  <link rel="stylesheet" href="./main.css" type="text/css" media="screen, tv, print" charset="UTF-8" />
+</head>
+<body>
+
+<h1>Clack.Logger - Logging utility for Clack. </h1><h2>AUTHOR</h2><p>Eitarow Fukamachi (e.arrows@gmail.com) </p><h2>SEE ALSO</h2><ul><li>Clack.Middleware.Logger</li></ul>
+
+<h2>EXTERNAL SYMBOLS</h2>
+
+<div class="symbol">
+  <ul>
+
+<li>
+  Variable: <strong>*logger-output*</strong>
+
+
+</li>
+
+<li>
+  Variable: <strong>*logger-time-format*</strong>
+
+
+</li>
+
+<li>
+  Variable: <strong>+debug+</strong>
+
+
+</li>
+
+<li>
+  Variable: <strong>+info+</strong>
+
+
+</li>
+
+<li>
+  Variable: <strong>+notice+</strong>
+
+
+</li>
+
+<li>
+  Variable: <strong>+warning+</strong>
+
+
+</li>
+
+<li>
+  Variable: <strong>+error+</strong>
+
+
+</li>
+
+<li>
+  Variable: <strong>+critical+</strong>
+
+
+</li>
+
+<li>
+  Variable: <strong>+alert+</strong>
+
+
+</li>
+
+<li>
+  Variable: <strong>+emergency+</strong>
+
+
+</li>
+
+<li>
+  Variable: <strong>*logger-min-level*</strong>
+
+
+</li>
+
+<li>
+  Function: <strong>log-message</strong>
+[level message]
+
+<pre>
+  
+Output a log if the log level is more than `*logger-min-level*'.
+Log level must be a integer 0-7, or a keyword represents log level.
+
+Example:
+  (log-message :warning "Something wrong.")
+</pre>
+
+
+</li>
+
+  </ul>
+</div>
+
+</body>
+</html>

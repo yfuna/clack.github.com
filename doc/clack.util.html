@@ -1,1 +1,87 @@
-<html><head><title>Clack.Util - Clack API Reference</title><link href="doc.css" rel="stylesheet" type="text/css"></head><body><h1>Clack.Util - Utilities for Clack core or middleware development. </h1><h2>DESCRIPTION</h2><p>Most of time, Clack uses other utility libraries (ex. Alexandria), but I realized they were not enough for Clack. </p><p>See each description of these functions for detail. </p><h2>AUTHOR</h2><p>Eitarow Fukamachi (e.arrows@gmail.com) </p><h2>EXTERNAL SYMBOLS</h2><div class="symbol"> <ul><li>Macro: <strong> namespace</strong>  [name &amp;rest body]<pre> Similar to `defpackage', but the difference is ensure to be in :CL-USER before and to be in the new package after.<br /> This may be useful for 'one-package-per-one-file' style.</pre></li><li>Macro: <strong> getf*</strong>  [place key]<pre> Similar to `getf' but allows many types for the `key', String, Keyword or Symbol.</pre></li><li>Function: <strong> getf-all</strong>  [plist key]<pre> This is a version of `getf' enabled to manage multiple keys. If the `plist' has two or more pairs that they have given `key' as a key, returns the values of each pairs as one list.</pre></li><li>Function: <strong> merge-plist</strong>  [p1 p2]<pre> Merge two plist into one plist.<br /> If same keys in two plist, second one will be adopted.<br /> <br /> Example:<br />   (merge-plist '(:apple 1 :grape 2) '(:banana 3 :apple 4))<br />   ;;=&gt; (:GRAPE 2 :BANANA 3 :APPLE 4)</pre></li><li>Function: <strong> find-handler</strong>  [server]<pre> Return a handler package. `server' must be a symbol or a keyword, not containing "Clack.Handler." as a prefix.<br /> <br /> Example:<br />   (find-handler :hunchentoot)</pre>  </div>  </li></ul></body></html>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>CLACK.UTIL</title>
+  <link rel="stylesheet" href="./main.css" type="text/css" media="screen, tv, print" charset="UTF-8" />
+</head>
+<body>
+
+<h1>Clack.Util - Utilities for Clack core or middleware development. </h1><h2>DESCRIPTION</h2><p>Most of time, Clack uses other utility libraries (ex. Alexandria), but I realized they were not enough for Clack. </p><p>See each description of these functions for detail. </p><h2>AUTHOR</h2><p>Eitarow Fukamachi (e.arrows@gmail.com) </p>
+
+<h2>EXTERNAL SYMBOLS</h2>
+
+<div class="symbol">
+  <ul>
+
+<li>
+  Macro: <strong>namespace</strong>
+[name &rest body]
+
+<pre>
+  Similar to `defpackage', but the difference is ensure to be in :CL-USER before and to be in the new package after.
+This may be useful for 'one-package-per-one-file' style.
+</pre>
+
+
+</li>
+
+<li>
+  Macro: <strong>getf*</strong>
+[place key]
+
+<pre>
+  Similar to `getf' but allows many types for the `key', String, Keyword or Symbol.
+</pre>
+
+
+</li>
+
+<li>
+  Function: <strong>getf-all</strong>
+[plist key]
+
+<pre>
+  This is a version of `getf' enabled to manage multiple keys. If the `plist' has two or more pairs that they have given `key' as a key, returns the values of each pairs as one list.
+</pre>
+
+
+</li>
+
+<li>
+  Function: <strong>merge-plist</strong>
+[p1 p2]
+
+<pre>
+  Merge two plist into one plist.
+If same keys in two plist, second one will be adopted.
+
+Example:
+  (merge-plist '(:apple 1 :grape 2) '(:banana 3 :apple 4))
+  ;;=> (:GRAPE 2 :BANANA 3 :APPLE 4)
+
+</pre>
+
+
+</li>
+
+<li>
+  Function: <strong>find-handler</strong>
+[server]
+
+<pre>
+  Return a handler package. `server' must be a symbol or a keyword, not containing "Clack.Handler." as a prefix.
+
+Example:
+  (find-handler :hunchentoot)
+</pre>
+
+
+</li>
+
+  </ul>
+</div>
+
+</body>
+</html>

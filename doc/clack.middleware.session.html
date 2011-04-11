@@ -1,4 +1,14 @@
-<html><head><title>Clack.Middleware.Session - Clack API Reference</title><link href="doc.css" rel="stylesheet" type="text/css"></head><body><h1>Clack.Middleware.Session - Middleware for session management. </h1><h2>SYNOPSIS</h2><pre><code>(clackup (builder  
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>CLACK.MIDDLEWARE.SESSION</title>
+  <link rel="stylesheet" href="./main.css" type="text/css" media="screen, tv, print" charset="UTF-8" />
+</head>
+<body>
+
+<h1>Clack.Middleware.Session - Middleware for session management. </h1><h2>SYNOPSIS</h2><pre><code>(clackup (builder  
           (&lt;clack-middleware-session&gt;  
            :state (make-instance '&lt;clack-session-state-cookie&gt;))  
           (lambda (req)  
@@ -7,4 +17,41 @@
             `(200  
               (:content-type "text/plain")  
               (,(format nil "Hello, you've been here for ~Ath times!"  
-                        (incf (gethash :counter (getf req :clack.session))))))))) </code></pre><h2>DESCRIPTION</h2><p>Clack.Middleware.Session provides you session interface. By default this will use cookies to keep session state and store data in memory. </p><p>You can change this behavior to inherit <code>&lt;clack-session-state&gt;' and </code><clack-session-store>'. </p><p>Note the `:clack.session' is a hash table, not a plist, because plist cannot keep state between functions. </p><h2>AUTHOR</h2><p>Eitarow Fukamachi (e.arrows@gmail.com) </p><h2>SEE ALSO</h2><ul><li>Clack.Session.State</li><li>Clack.Session.Store</li></ul><h2>EXTERNAL SYMBOLS</h2><div class="symbol"> <ul><li>Class: <strong>&lt;clack-middleware-session&gt;</strong> inherits (&lt;middleware&gt;)<pre> Clack Middleware for session management.</pre></li></ul><dl><dt> <strong> state</strong>  Accessor: state</small> </dt> <dt> <strong> store</strong>  Accessor: store</small> </dt> </dl>  <ul><li>Method: <strong> call</strong>  [(this &lt;clack-middleware-session&gt;) req] </div>  </li></ul></body></html>
+                        (incf (gethash :counter (getf req :clack.session))))))))) </code></pre><h2>DESCRIPTION</h2><p>Clack.Middleware.Session provides you session interface. By default this will use cookies to keep session state and store data in memory. </p><p>You can change this behavior to inherit <code>&lt;clack-session-state&gt;' and </code><clack-session-store>'. </p><p>Note the `:clack.session' is a hash table, not a plist, because plist cannot keep state between functions. </p><h2>AUTHOR</h2><p>Eitarow Fukamachi (e.arrows@gmail.com) </p><h2>SEE ALSO</h2><ul><li>Clack.Session.State</li><li>Clack.Session.Store</li></ul>
+
+<h2>EXTERNAL SYMBOLS</h2>
+
+<div class="symbol">
+  <ul>
+
+<li>
+  Class: <strong><clack-middleware-session></strong> inherits ((<middleware>))
+
+<pre>
+  Clack Middleware for session management.
+</pre>
+
+<dl>
+
+<dt><strong>state</strong> Accessor: state</small></dt>
+
+
+<dt><strong>store</strong> Accessor: store</small></dt>
+
+
+</dl>
+
+</li>
+
+<li>
+  Method: <strong>call</strong>
+[(this <clack-middleware-session>) req]
+
+
+</li>
+
+  </ul>
+</div>
+
+</body>
+</html>

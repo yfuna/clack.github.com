@@ -1,6 +1,50 @@
-<html><head><title>Clack.Logger.Stream - Clack API Reference</title><link href="doc.css" rel="stylesheet" type="text/css"></head><body><h1>Clack.Logger.Stream - Output log messages to stream. </h1><h2>SYNOPSIS</h2><pre><code>(clackup (builder  
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>CLACK.LOGGER.STREAM</title>
+  <link rel="stylesheet" href="./main.css" type="text/css" media="screen, tv, print" charset="UTF-8" />
+</head>
+<body>
+
+<h1>Clack.Logger.Stream - Output log messages to stream. </h1><h2>SYNOPSIS</h2><pre><code>(clackup (builder  
           (&lt;clack-middleware-logger&gt;  
            :logger (make-instance '&lt;clack-logger-stream&gt;))  
           (lambda (req)  
             (log-message :notice "You've got an access!")  
-            '(200 nil ("ok"))))) </code></pre><h2>DESCRIPTION</h2><p>Clack.Logger.Stream is a logger outputs log messages to stream, `<em>standard-output</em>' for default. </p><p>This logger is used in Clack.Middleware.Logger as a default logger. </p><h2>AUTHOR</h2><p>Eitarow Fukamachi (e.arrows@gmail.com) </p><h2>SEE ALSO</h2><ul><li>Clack.Logger.Base</li><li>Clack.Middleware.Logger</li><li>Clack.Logger</li></ul><h2>EXTERNAL SYMBOLS</h2><div class="symbol"> <ul><li>Class: <strong>&lt;clack-logger-stream&gt;</strong> inherits (&lt;clack-logger-base&gt;)</li></ul><dl><dt> <strong> output-stream</strong>  Reader: output-stream</small> </dt> </dl>  <ul><li>Method: <strong> output</strong>  [(this &lt;clack-logger-stream&gt;)]<pre> Output log messages to 'output-stream' in this slot.</pre>  </div>  </li></ul></body></html>
+            '(200 nil ("ok"))))) </code></pre><h2>DESCRIPTION</h2><p>Clack.Logger.Stream is a logger outputs log messages to stream, `<em>standard-output</em>' for default. </p><p>This logger is used in Clack.Middleware.Logger as a default logger. </p><h2>AUTHOR</h2><p>Eitarow Fukamachi (e.arrows@gmail.com) </p><h2>SEE ALSO</h2><ul><li>Clack.Logger.Base</li><li>Clack.Middleware.Logger</li><li>Clack.Logger</li></ul>
+
+<h2>EXTERNAL SYMBOLS</h2>
+
+<div class="symbol">
+  <ul>
+
+<li>
+  Class: <strong><clack-logger-stream></strong> inherits ((<clack-logger-base>))
+
+<dl>
+
+<dt><strong>output-stream</strong> Reader: output-stream</small></dt>
+
+
+</dl>
+
+</li>
+
+<li>
+  Method: <strong>output</strong>
+[(this <clack-logger-stream>)]
+
+<pre>
+  Output log messages to 'output-stream' in this slot.
+</pre>
+
+
+</li>
+
+  </ul>
+</div>
+
+</body>
+</html>

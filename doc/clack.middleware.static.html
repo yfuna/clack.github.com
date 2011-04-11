@@ -1,4 +1,14 @@
-<html><head><title>Clack.Middleware.Static - Clack API Reference</title><link href="doc.css" rel="stylesheet" type="text/css"></head><body><h1>Clack.Middleware.Static - Middleware to serve static files. </h1><h2>SYNOPSIS</h2><pre><code>(run  
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>CLACK.MIDDLEWARE.STATIC</title>
+  <link rel="stylesheet" href="./main.css" type="text/css" media="screen, tv, print" charset="UTF-8" />
+</head>
+<body>
+
+<h1>Clack.Middleware.Static - Middleware to serve static files. </h1><h2>SYNOPSIS</h2><pre><code>(run  
   (builder  
    (&lt;clack-middleware-static&gt;  
     :path "/public/"  
@@ -15,4 +25,41 @@
             (when (ppcre:scan path "^/public/")  
               (subseq path 7)))  
     :root #p"/static-files/")  
-   app)) </code></pre><h2>AUTHOR</h2><ul><li>Eitarow Fukamachi (e.arrows@gmail.com)</li></ul><h2>SEE ALSO</h2><ul><li>Clack.App.File</li></ul><h2>EXTERNAL SYMBOLS</h2><div class="symbol"> <ul><li>Class: <strong>&lt;clack-middleware-static&gt;</strong> inherits (&lt;middleware&gt;)<pre> Clack Middleware to intercept requests for static files.</pre></li></ul><dl><dt> <strong> path</strong>  Accessor: static-path</small> </dt> <dt> <strong> root</strong>  Accessor: static-root</small> </dt> </dl>  <ul><li>Method: <strong> call</strong>  [(this &lt;clack-middleware-static&gt;) req] </div>  </li></ul></body></html>
+   app)) </code></pre><h2>AUTHOR</h2><ul><li>Eitarow Fukamachi (e.arrows@gmail.com)</li></ul><h2>SEE ALSO</h2><ul><li>Clack.App.File</li></ul>
+
+<h2>EXTERNAL SYMBOLS</h2>
+
+<div class="symbol">
+  <ul>
+
+<li>
+  Class: <strong><clack-middleware-static></strong> inherits ((<middleware>))
+
+<pre>
+  Clack Middleware to intercept requests for static files.
+</pre>
+
+<dl>
+
+<dt><strong>path</strong> Accessor: static-path</small></dt>
+
+
+<dt><strong>root</strong> Accessor: static-root</small></dt>
+
+
+</dl>
+
+</li>
+
+<li>
+  Method: <strong>call</strong>
+[(this <clack-middleware-static>) req]
+
+
+</li>
+
+  </ul>
+</div>
+
+</body>
+</html>
