@@ -14,7 +14,7 @@
         :clack.app.route))  
 (in-package :clack-sample)  
  
-(defroutes app (req)  
+(defroutes app (env)  
   (GET "/" #'index)  
   (GET "/login" #'login)  
   (POST "/login" #'authorize)  
@@ -28,18 +28,19 @@
   <ul>
 
 <li>
-  Function: <strong>url-rule->regex</strong>
+  Function: <strong>parse-url-rule</strong>
 [url]
 
 <pre>
   
-Convert an URL rule into a regex.
+Parse an URL rule and return a list of (regex control-string
+variables).
 
 Example:
-  (url-rule->regex "/login")
-  ;;=> ("^\/login$" NIL)
-  (url-rule->regex "/member/:id")
-  ;;=> ("^\/member\/(.+?)$" (ID))
+  (parse-url-rule "/login")
+  ;;=> ("^\/login$" "/login" NIL)
+  (parse-url-rule "/member/:id")
+  ;;=> ("^\/member\/(.+?)$" "/member/~A" (ID))
 
 </pre>
 

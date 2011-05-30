@@ -8,8 +8,8 @@
 </head>
 <body>
 
-<h1>Clack.Request - Portable HTTP Request object for Clack Request. </h1><h2>SYNOPSIS</h2><pre><code>(defun app (req)  
-  (let ((req (make-request req)))  
+<h1>Clack.Request - Portable HTTP Request object for Clack Request. </h1><h2>SYNOPSIS</h2><pre><code>(defun app (env)  
+  (let ((req (make-request env)))  
   `(200  
     (:content-type "text/plain")  
     ("Hello, " (query-parameter req "name))))) </code></pre><h2>DESCRIPTION</h2><p>Clack.Request provides a consistent API for request objects. </p><h2>AUTHOR</h2><ul><li>Eitarow Fukamachi (e.arrows@gmail.com)</li></ul>
@@ -107,12 +107,27 @@ Typically this will be something like :HTTP/1.0 or :HTTP/1.1.</dd>
 </li>
 
 <li>
+  Function: <strong>shared-raw-body</strong>
+[env]
+
+<pre>
+  Returns a shared raw-body, or returns nil if raw-body is
+empty. This function modifies REQ to share raw-body among the
+instances of <request>.
+</pre>
+
+
+</li>
+
+<li>
   Function: <strong>make-request</strong>
-[req]
+[env]
 
 <pre>
   A synonym for (make-instance '<request> ...).
-Make a <request> instance from request plist.
+Make a <request> instance from environment plist. Raw-body of the instance
+will be shared, meaning making an instance of <request> doesn't effect
+on an original raw-body.
 </pre>
 
 

@@ -15,9 +15,9 @@
 (in-package :clack.middleware.example)  
  
 (defclass &lt;clack-middleware-example&gt; (&lt;middleware&gt;) ())  
-(defmethod call ((this &lt;clack-middleware-example&gt;) req)  
-  ;; pre-processing `req'  
-  (let ((res (call-next this req)))  
+(defmethod call ((this &lt;clack-middleware-example&gt;) env)  
+  ;; pre-processing `env'  
+  (let ((res (call-next this env)))  
     ;; post-processing `res'  
     res)) </code></pre><h2>DESCRIPTION</h2><p>Clack.Middleware is the base class to write Clack Middleware. </p><p>All you have to do is to inherit from <code>&lt;middleware&gt;' and then implement the callback </code>call' method to do the actual work. </p><p>Middleware is similar to ':around' method of CLOS. You can delegate some processes to Application (or next Middleware) to call `call-next'. </p><h2>AUTHOR</h2><p>  Author: Eitarow Fukamachi (e.arrows@gmail.com) </p><h2>SEE ALSO</h2><ul><li>Clack.Component</li></ul>
 
@@ -44,7 +44,7 @@
 
 <li>
   Method: <strong>call-next</strong>
-[(this &lt;middleware&gt;) req]
+[(this &lt;middleware&gt;) env]
 
 <pre>
   Call next middleware or application.
