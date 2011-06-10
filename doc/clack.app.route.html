@@ -20,7 +20,7 @@
   (POST "/login" #'authorize)  
   (GET "/member/:id" #'member))  
  
-(clackup #'app) </code></pre><h2>DESCRIPTION</h2><p>Clack.App.Route provides an URL based dispacher, inspired by Ruby's Sinatra. </p><h2>AUTHOR</h2><ul><li>Tomohiro Matsuyama (tomo@cx4a.org)</li></ul><h2>CONTRIBUTORS</h2><ul><li>Eitarow Fukamachi (e.arrows@gmail.com)</li></ul>
+(clackup #'app) </code></pre><h2>DESCRIPTION</h2><p>Clack.App.Route provides an URL based dispacher, inspired by Ruby's Sinatra. </p><p>This package is using Clack.Util.Route to parse rule strings. </p><p>Note: Though <code>parse-url-rule</code> is provided from this package now, it is now deprecated. Use Clack.Util.Route for instead. </p><h2>AUTHOR</h2><ul><li>Tomohiro Matsuyama (tomo@cx4a.org)</li></ul><h2>CONTRIBUTORS</h2><ul><li>Eitarow Fukamachi (e.arrows@gmail.com)</li></ul><h2>SEE ALSO</h2><ul><li>Clack.Util.Route</li></ul>
 
 <h2>EXTERNAL SYMBOLS</h2>
 
@@ -33,6 +33,7 @@
 
 <pre>
   
+[DEPRECATED]
 Parse an URL rule and return a list of (regex control-string
 variables).
 
