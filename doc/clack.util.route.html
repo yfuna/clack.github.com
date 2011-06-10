@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>CLACK.UTIL.ROUTE</title>
+  <link rel="stylesheet" href="./main.css" type="text/css" media="screen, tv, print" charset="UTF-8" />
+</head>
+<body>
+
+<h1>Clack.Util.Route - Class for Sinatra-compatible URL rule. </h1><h2>SYNOPSIS</h2><pre><code>(defvar *url-rule* (make-url-rule "/hello/:name"))  
+ 
+(match *url-rule* "/hello/fukamachi")  
+;=&gt; (NAME "fukamachi")  
+(match *url-rule* "/bye/fukamachi")  
+;=&gt; NIL  
+ 
+(link-to *url-rule* '(:name "fukamachi"))  
+;=&gt; "/hello/fukamachi" </code></pre><h2>DESCRIPTION</h2><p>Clack.Util.Route provides a Sinatra-compatible routing class. </p><h2>Named Parameter</h2><pre><code>(match (make-url-rule "/hello/:name") "/hello/fukamachi")  
+;=&gt; "/hello/fukamachi"  
+    (:NAME "fukamachi") </code></pre><h2>Wildcard Parameter</h2><pre><code>(match (make-url-rule "/say/*/to/*") "/say/hello/to/world")  
+;=&gt; "/say/hello/to/world"  
+    (:SPLAT ("hello" "world")) </code></pre><h2>Optional Parameter</h2><pre><code>(match (make-url-rule "/?:foo?/?:bar?") "/hello/world")  
+;=&gt; "/hello/world"  
+    (:FOO "hello" :BAR "world")  
+(match (make-url-rule "/?:foo?/?:bar?") "/hello")  
+;=&gt; "/hello"  
+    (:FOO "hello" :BAR NIL)  
+(match (make-url-rule "/?:foo?/?:bar?") "/")  
+;=&gt; "/"  
+    (:FOO NIL :BAR NIL) </code></pre><h2>Regular Expression</h2><pre><code>(match (make-url-rule "/hello([\w]+)" :regexp t)  
+       "/hello/world")  
+;=&gt; "/hello/world"  
+    (:CAPTURES ("world")) </code></pre><h2>AUTHOR</h2><ul><li>Eitarow Fukamachi (e.arrows@gmail.com)</li><li>Tomohiro Matsuyama (tomo@cx4a.org)</li></ul><p>Note: <code>compile-rule</code> was originally written by Tomohiro Matsuyama as <code>parse-url-rule</code> in Clack.App.Route. </p>
+
+<h2>EXTERNAL SYMBOLS</h2>
+
+<div class="symbol">
+  <ul>
+
+<li>
+  Class: <strong>&lt;url-rule&gt;</strong> inherits (standard-object)
+
+<dl>
+
+<dt><strong>url</strong> Accessor: url</small></dt>
+
+
+<dt><strong>regex</strong> Accessor: regex</small></dt>
+
+
+<dt><strong>format-string</strong> Accessor: format-string</small></dt>
+
+
+<dt><strong>param-keys</strong> Accessor: param-keys</small></dt>
+
+
+</dl>
+
+</li>
+
+<li>
+  Function: <strong>make-url-rule</strong>
+[url &amp;key regexp]
+
+<pre>
+  Construct `<url-rule>` and return it. You must always use this function when you need `<url-rule>`.
+</pre>
+
+
+</li>
+
+<li>
+  Method: <strong>initialize-instance</strong>
+[(this &lt;url-rule&gt;) &amp;key]
+
+
+</li>
+
+<li>
+  Method: <strong>initialize-instance</strong>
+[(this &lt;regex-url-rule&gt;) &amp;key]
+
+
+</li>
+
+<li>
+  Method: <strong>match</strong>
+[(this &lt;url-rule&gt;) url-string]
+
+<pre>
+  Check whether the `url-string` matches to `this`. This method is for `<url-rule>`.
+Return two values, matched URL and Rule parameters as a plist.
+If the url-rule is containing Wildcard rules, they will be collected as :splat.
+
+Example:
+    (match (make-url-rule "/hello/:name") "/hello/fukamachi")
+    ;=> "/hello/fukamachi"
+        (:NAME "fukamachi")
+
+    (match (make-url-rule "/say/*/to/*") "/say/hello/to/world")
+    ;=> "/say/hello/to/world"
+        (:SPLAT ("hello" "world"))
+
+</pre>
+
+
+</li>
+
+<li>
+  Method: <strong>match</strong>
+[(this &lt;regex-url-rule&gt;) url-string]
+
+<pre>
+  Check whether the `url-string` matches to `this`. This method is for `<regex-url-rule>`.
+Return two values, matched URL and Rule parameters as a plist.
+Captured strings in `url-string` are collected as :captures.
+
+Example:
+    (match (make-url-rule "/hello([\w]+)" :regexp t)
+           "/hello/world")
+    ;=> "/hello/world"
+        (:CAPTURES ("world"))
+
+</pre>
+
+
+</li>
+
+<li>
+  Method: <strong>link-to</strong>
+[(this &lt;url-rule&gt;) params]
+
+<pre>
+  Return an URL from a rule and parameters.
+
+Example:
+    (link-to (make-url-rule "/hello/:name")
+             '(:name "fukamachi"))
+    ;=> "/hello/fukamachi"
+
+</pre>
+
+
+</li>
+
+<li>
+  Method: <strong>link-to</strong>
+[(this &lt;regex-url-rule&gt;) params]
+
+<pre>
+  Return an URL from a rule and parameters.
+
+Example:
+    (link-to (make-url-rule "/hello/:name")
+             '(:name "fukamachi"))
+    ;=> "/hello/fukamachi"
+
+</pre>
+
+
+</li>
+
+  </ul>
+</div>
+
+</body>
+</html>
