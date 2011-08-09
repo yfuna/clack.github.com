@@ -4,7 +4,7 @@ body {
   font-size: 14pt;
   margin: 0 150px 40px;
   line-height: 150%;
-  font-family: "Optima", "Nu Sans", Baskerville, "Times New Roman", "Arial", sans-serif;
+  font-family: Georgia, 'bitstream vera serif', serif;
 }
 
 h1 {
@@ -20,12 +20,6 @@ h1 a {
 
 h2 {
   font-size: 24pt;
-}
-
-.tagline {
-  margin: 0.4em auto auto 20px;
-  color: #888;
-  font-size: 0.9em;
 }
 
 a:link {
