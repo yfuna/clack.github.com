@@ -15,7 +15,7 @@
 (match *url-rule* "/bye/fukamachi")  
 ;=&gt; NIL  
  
-(link-to *url-rule* '(:name "fukamachi"))  
+(url-for *url-rule* '(:name "fukamachi"))  
 ;=&gt; "/hello/fukamachi" </code></pre><h2>DESCRIPTION</h2><p>Clack.Util.Route provides a Sinatra-compatible routing class. </p><h3>Named Parameter</h3><pre><code>(match (make-url-rule "/hello/:name") "/hello/fukamachi")  
 ;=&gt; "/hello/fukamachi"  
     (:NAME "fukamachi") </code></pre><h3>Wildcard Parameter</h3><pre><code>(match (make-url-rule "/say/*/to/*") "/say/hello/to/world")  
@@ -43,7 +43,7 @@
 
 <dl>
 
-<dt><strong>method</strong> Accessor: method</small></dt>
+<dt><strong>request-method</strong> Accessor: request-method</small></dt>
 
 
 <dt><strong>url</strong> Accessor: url</small></dt>
@@ -131,14 +131,14 @@ Example:
 </li>
 
 <li>
-  Method: <strong>link-to</strong>
+  Method: <strong>url-for</strong>
 [(this &lt;url-rule&gt;) params]
 
 <pre>
   Return an URL from a rule and parameters.
 
 Example:
-    (link-to (make-url-rule "/hello/:name")
+    (url-for (make-url-rule "/hello/:name")
              '(:name "fukamachi"))
     ;=> "/hello/fukamachi"
 
@@ -148,14 +148,14 @@ Example:
 </li>
 
 <li>
-  Method: <strong>link-to</strong>
+  Method: <strong>url-for</strong>
 [(this &lt;regex-url-rule&gt;) params]
 
 <pre>
   Return an URL from a rule and parameters.
 
 Example:
-    (link-to (make-url-rule "/hello/:name")
+    (url-for (make-url-rule "/hello/:name")
              '(:name "fukamachi"))
     ;=> "/hello/fukamachi"
 

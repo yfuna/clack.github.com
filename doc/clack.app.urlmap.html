@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>CLACK.APP.URLMAP</title>
+  <link rel="stylesheet" href="./main.css" type="text/css" media="screen, tv, print" charset="UTF-8" />
+</head>
+<body>
+
+<h1>Clack.App.URLMap - Map multiple apps in different paths. </h1><h2>SYNOPSIS</h2><pre><code>(defparameter *urlmap* (make-instance '&lt;clack-app-urlmap&gt;))  
+(mount *urlmap* "/pc/" #'app-for-pc)  
+(mount *urlmap* "/api/" #'app-for-api)  
+(call *urlmap* env)  
+ 
+;; Useful synonym.  
+(builder-urlmap  
+  ("/pc/" #'app-for-pc)  
+  ("/api/" #'app-for-api)) </code></pre><h2>AUTHOR</h2><ul><li>Eitarow Fukamachi (e.arrows@gmail.com)</li></ul><h2>SEE ALSO</h2><ul><li>Clack.Builder</li></ul>
+
+<h2>EXTERNAL SYMBOLS</h2>
+
+<div class="symbol">
+  <ul>
+
+<li>
+  Class: <strong>&lt;clack-app-urlmap&gt;</strong> inherits (&lt;component&gt;)
+
+<pre>
+  Class to map multiple apps in different paths.
+</pre>
+
+<dl>
+
+<dt><strong>%mapping</strong></small></dt>
+
+
+</dl>
+
+</li>
+
+<li>
+  Method: <strong>mount</strong>
+[(this &lt;clack-app-urlmap&gt;) location app]
+
+<pre>
+  Regist an `app' to the `location'.
+</pre>
+
+
+</li>
+
+<li>
+  Method: <strong>call</strong>
+[(this &lt;clack-app-urlmap&gt;) env]
+
+
+</li>
+
+<li>
+  Macro: <strong>builder-urlmap</strong>
+[&amp;rest apps]
+
+<pre>
+  Useful syntax sugar to build applications.
+</pre>
+
+
+</li>
+
+  </ul>
+</div>
+
+</body>
+</html>
