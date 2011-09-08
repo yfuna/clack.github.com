@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>CLACK.APP.DIRECTORY</title>
+  <link rel="stylesheet" href="./main.css" type="text/css" media="screen, tv, print" charset="UTF-8" />
+</head>
+<body>
+
+<h1>Clack.App.Directory - Server static files from document root with directory index. </h1><h2>SYNOPSIS</h2><pre><code>;; mount /var/www/ to http://localhost:5000/  
+(clackup  
+ (make-instance '&lt;clack-app-directory&gt;  
+    :root #p"/var/www/")  
+ :port 5000) </code></pre><h2>AUTHOR</h2><ul><li>Eitarow Fukamachi (e.arrows@gmail.com)</li></ul><h2>SEE ALSO</h2><ul><li>Clack.App.File</li></ul>
+
+<h2>EXTERNAL SYMBOLS</h2>
+
+<div class="symbol">
+  <ul>
+
+<li>
+  Class: <strong>&lt;clack-app-directory&gt;</strong> inherits (&lt;clack-app-file&gt;)
+
+<dl>
+
+</dl>
+
+</li>
+
+<li>
+  Method: <strong>should-handle</strong>
+[(this &lt;clack-app-file&gt;) file]
+
+
+</li>
+
+<li>
+  Method: <strong>serve-path</strong>
+[(this &lt;clack-app-directory&gt;) env file encoding]
+
+
+</li>
+
+  </ul>
+</div>
+
+</body>
+</html>

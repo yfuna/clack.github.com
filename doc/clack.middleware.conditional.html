@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>CLACK.MIDDLEWARE.CONDITIONAL</title>
+  <link rel="stylesheet" href="./main.css" type="text/css" media="screen, tv, print" charset="UTF-8" />
+</head>
+<body>
+
+<h1>Clack.Middleware.Conditional - Conditional wrapper for Clack middleware. </h1><h2>SYNOPSIS</h2><pre><code>(builder  
+ (:condition (lambda (env)  
+               (scan "WebKit" (getf env :http-user-agent)))  
+  :builder (builder  
+            &lt;clack-middleware-something&gt;  
+            app)))  
+ 
+(builder  
+  (&lt;clack-middleware-conditional&gt;  
+   :condition (lambda (env)  
+                (scan "WebKit" (getf env :http-user-agent)))  
+   :builder '(&lt;clack-middleware-static&gt;  
+              :path "/public/"  
+              :root #p"/static-files/")  
+  app))  
+ 
+(wrap  
+ (make-instance '&lt;clack-middleware-conditional&gt;  
+    :condition (lambda (env)  
+                 (scan "WebKit" (getf env :http-user-agent)))  
+    :builder '(&lt;clack-middleware-something&gt;  
+               :path "/public/"  
+               :root #p"/static-files/"))  
+ app) </code></pre><h2>AUTHOR</h2><ul><li>Eitarow Fukamachi (e.arrows@gmail.com)</li></ul>
+
+<h2>EXTERNAL SYMBOLS</h2>
+
+<div class="symbol">
+  <ul>
+
+<li>
+  Class: <strong>&lt;clack-middleware-conditional&gt;</strong> inherits (&lt;middleware&gt;)
+
+<dl>
+
+<dt><strong>condition</strong> Accessor: condition</small></dt>
+
+
+<dt><strong>builder</strong> Accessor: builder</small></dt>
+
+
+<dt><strong>middleware</strong> Accessor: middleware</small></dt>
+
+
+</dl>
+
+</li>
+
+<li>
+  Method: <strong>initialize-instance</strong>
+[(this &lt;clack-middleware-conditional&gt;) &amp;key]
+
+
+</li>
+
+<li>
+  Method: <strong>wrap</strong>
+[(this &lt;clack-middleware-conditional&gt;) app]
+
+
+</li>
+
+<li>
+  Method: <strong>call</strong>
+[(this &lt;clack-middleware-conditional&gt;) env]
+
+
+</li>
+
+  </ul>
+</div>
+
+</body>
+</html>
