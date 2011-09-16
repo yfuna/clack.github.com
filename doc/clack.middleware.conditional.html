@@ -11,9 +11,8 @@
 <h1>Clack.Middleware.Conditional - Conditional wrapper for Clack middleware. </h1><h2>SYNOPSIS</h2><pre><code>(builder  
  (:condition (lambda (env)  
                (scan "WebKit" (getf env :http-user-agent)))  
-  :builder (builder  
-            &lt;clack-middleware-something&gt;  
-            app)))  
+  :builder '&lt;clack-middleware-something&gt;)  
+ app)  
  
 (builder  
   (&lt;clack-middleware-conditional&gt;  
@@ -21,8 +20,8 @@
                 (scan "WebKit" (getf env :http-user-agent)))  
    :builder '(&lt;clack-middleware-static&gt;  
               :path "/public/"  
-              :root #p"/static-files/")  
-  app))  
+              :root #p"/static-files/"))  
+  app)  
  
 (wrap  
  (make-instance '&lt;clack-middleware-conditional&gt;  
@@ -43,13 +42,13 @@
 
 <dl>
 
-<dt><strong>condition</strong> Accessor: condition</small></dt>
+<dt><strong>condition</strong></small></dt>
 
 
-<dt><strong>builder</strong> Accessor: builder</small></dt>
+<dt><strong>builder</strong></small></dt>
 
 
-<dt><strong>middleware</strong> Accessor: middleware</small></dt>
+<dt><strong>middleware</strong></small></dt>
 
 
 </dl>
