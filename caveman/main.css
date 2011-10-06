@@ -39,4 +39,5 @@ pre {
   background-color: #eee;
   line-height: normal;
   white-space: pre-wrap;
+  font-family: 'andale mono', 'lucida console', monospace;
 }
