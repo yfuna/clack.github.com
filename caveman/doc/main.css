@@ -5,6 +5,18 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+a:link {
+	color: #005585;
+}
+
+a:visited {
+	color: #485270;
+}
+
+a:hover {
+	color: #b83800;
+}
+
 code {
   background-color: #fee9cc;
   color: rgba(0, 0, 0, 0.75);
