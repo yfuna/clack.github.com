@@ -36,6 +36,129 @@
   <ul>
 
 <li>
+  Method: <strong>(setf headers)</strong>
+[value (res &lt;response&gt;) &amp;optional name]
+
+<pre>
+  Set headers.
+
+Example:
+  (setf (headers res) '(:content-type "text/html"))
+  (setf (headers res :content-type) "text/html")
+</pre>
+
+
+</li>
+
+<li>
+  Method: <strong>(setf body)</strong>
+[value (res &lt;response&gt;)]
+
+<pre>
+  Set body with normalizing. body must be a list.
+</pre>
+
+
+</li>
+
+<li>
+  Method: <strong>(setf set-cookies)</strong>
+[value (res &lt;response&gt;) &amp;optional name]
+
+<pre>
+  Set set-cookies.
+
+Example:
+  (setf (set-cookies res) '(:hoge "1"))
+  (setf (set-cookies res :hoge) "1")
+</pre>
+
+
+</li>
+
+<li>
+  Method: <strong>(setf headers)</strong>
+[value (res &lt;response&gt;) &amp;optional name]
+
+<pre>
+  Set headers.
+
+Example:
+  (setf (headers res) '(:content-type "text/html"))
+  (setf (headers res :content-type) "text/html")
+</pre>
+
+
+</li>
+
+<li>
+  Method: <strong>(setf headers)</strong>
+[value (res &lt;response&gt;) &amp;optional name]
+
+<pre>
+  Set headers.
+
+Example:
+  (setf (headers res) '(:content-type "text/html"))
+  (setf (headers res :content-type) "text/html")
+</pre>
+
+
+</li>
+
+<li>
+  Method: <strong>(setf body)</strong>
+[value (res &lt;response&gt;)]
+
+<pre>
+  Set body with normalizing. body must be a list.
+</pre>
+
+
+</li>
+
+<li>
+  Method: <strong>(setf body)</strong>
+[value (res &lt;response&gt;)]
+
+<pre>
+  Set body with normalizing. body must be a list.
+</pre>
+
+
+</li>
+
+<li>
+  Method: <strong>(setf set-cookies)</strong>
+[value (res &lt;response&gt;) &amp;optional name]
+
+<pre>
+  Set set-cookies.
+
+Example:
+  (setf (set-cookies res) '(:hoge "1"))
+  (setf (set-cookies res :hoge) "1")
+</pre>
+
+
+</li>
+
+<li>
+  Method: <strong>(setf set-cookies)</strong>
+[value (res &lt;response&gt;) &amp;optional name]
+
+<pre>
+  Set set-cookies.
+
+Example:
+  (setf (set-cookies res) '(:hoge "1"))
+  (setf (set-cookies res :hoge) "1")
+</pre>
+
+
+</li>
+
+<li>
   Class: <strong>&lt;response&gt;</strong> inherits (standard-object)
 
 <pre>
@@ -97,12 +220,90 @@ Example:
 </li>
 
 <li>
+  Method: <strong>(setf headers)</strong>
+[value (res &lt;response&gt;) &amp;optional name]
+
+<pre>
+  Set headers.
+
+Example:
+  (setf (headers res) '(:content-type "text/html"))
+  (setf (headers res :content-type) "text/html")
+</pre>
+
+
+</li>
+
+<li>
+  Method: <strong>(setf headers)</strong>
+[value (res &lt;response&gt;) &amp;optional name]
+
+<pre>
+  Set headers.
+
+Example:
+  (setf (headers res) '(:content-type "text/html"))
+  (setf (headers res :content-type) "text/html")
+</pre>
+
+
+</li>
+
+<li>
+  Method: <strong>(setf headers)</strong>
+[value (res &lt;response&gt;) &amp;optional name]
+
+<pre>
+  Set headers.
+
+Example:
+  (setf (headers res) '(:content-type "text/html"))
+  (setf (headers res :content-type) "text/html")
+</pre>
+
+
+</li>
+
+<li>
   Method: <strong>push-header</strong>
 [(res &lt;response&gt;) name value]
 
 <pre>
   Push the given header pair into response headers.
 Example: (push-header res :content-type "text/html")
+</pre>
+
+
+</li>
+
+<li>
+  Method: <strong>(setf body)</strong>
+[value (res &lt;response&gt;)]
+
+<pre>
+  Set body with normalizing. body must be a list.
+</pre>
+
+
+</li>
+
+<li>
+  Method: <strong>(setf body)</strong>
+[value (res &lt;response&gt;)]
+
+<pre>
+  Set body with normalizing. body must be a list.
+</pre>
+
+
+</li>
+
+<li>
+  Method: <strong>(setf body)</strong>
+[value (res &lt;response&gt;)]
+
+<pre>
+  Set body with normalizing. body must be a list.
 </pre>
 
 
@@ -120,6 +321,51 @@ Example:
   ;;=> (:hoge "1")
   (set-cookies res :hoge)
   ;;=> "1"
+</pre>
+
+
+</li>
+
+<li>
+  Method: <strong>(setf set-cookies)</strong>
+[value (res &lt;response&gt;) &amp;optional name]
+
+<pre>
+  Set set-cookies.
+
+Example:
+  (setf (set-cookies res) '(:hoge "1"))
+  (setf (set-cookies res :hoge) "1")
+</pre>
+
+
+</li>
+
+<li>
+  Method: <strong>(setf set-cookies)</strong>
+[value (res &lt;response&gt;) &amp;optional name]
+
+<pre>
+  Set set-cookies.
+
+Example:
+  (setf (set-cookies res) '(:hoge "1"))
+  (setf (set-cookies res :hoge) "1")
+</pre>
+
+
+</li>
+
+<li>
+  Method: <strong>(setf set-cookies)</strong>
+[value (res &lt;response&gt;) &amp;optional name]
+
+<pre>
+  Set set-cookies.
+
+Example:
+  (setf (set-cookies res) '(:hoge "1"))
+  (setf (set-cookies res :hoge) "1")
 </pre>
 
 
