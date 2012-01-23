@@ -10,51 +10,110 @@
 <div class="container">
 <div class="sidebar">
   <h2>Table of Contents</h2>
-<ul><li><a href="#Usage">Usage</a></li><li><a href="#About%20Clack">About Clack</a><ul><li><a href="#What%20is%20Clack%3F">What is Clack?</a></li><li><a href="#Middleware%20is%20really%20needed">Middleware is really needed</a></li></ul></li><li><a href="#Installation">Installation</a></li><li><a href="#Application">Application</a><ul><li><a href="#Clack.App.Route">Clack.App.Route</a></li><li><a href="#The%20Environment">The Environment</a></li><li><a href="#The%20Response">The Response</a></li></ul></li><li><a href="#Handler">Handler</a></li><li><a href="#Middleware">Middleware</a><ul><li><a href="#Bundle%20Middleware">Bundle Middleware</a></li><li><a href="#Contrib%20Middleware">Contrib Middleware</a></li><li><a href="#How%20to%20write%20Middleware%3F">How to write Middleware?</a></li></ul></li><li><a href="#Dependency">Dependency</a></li><li><a href="#Author">Author</a></li><li><a href="#Copyright">Copyright</a></li><li><a href="#Contributors">Contributors</a></li><li><a href="#License">License</a></li></ul>
+  <ul><li><a href="#Usage">Usage</a></li><li><a href="#About+Clack">About Clack</a></li><ul><li><a href="#What+is+Clack%3F">What is Clack?</a></li><li><a href="#Middleware+is+really+needed">Middleware is really needed</a></li></ul><li><a href="#Installation">Installation</a></li><li><a href="#Application">Application</a></li><ul><li><a href="#Clack.App.Route">Clack.App.Route</a></li><li><a href="#The+Environment">The Environment</a></li><li><a href="#The+Response">The Response</a></li></ul><li><a href="#Handler">Handler</a></li><li><a href="#Middleware">Middleware</a></li><ul><li><a href="#Bundle+Middleware">Bundle Middleware</a></li><li><a href="#Contrib+Middleware">Contrib Middleware</a></li><li><a href="#How+to+write+Middleware%3F">How to write Middleware?</a></li></ul><li><a href="#Author">Author</a></li><li><a href="#Copyright">Copyright</a></li><li><a href="#Contributors">Contributors</a></li><li><a href="#License">License</a></li>
 </div>
 <div class="content">
-<a name="Clack%20-%20Web%20Application%20Environment%20for%20Common%20Lisp"></a><h1>Clack - Web Application Environment for Common Lisp</h1><p>Clack is a web application environment for Common Lisp inspired by Python's WSGI and Ruby's Rack. Your awesome framework should base on this. </p><a name="Usage"></a><h2>Usage</h2><pre><code>(defpackage simple-app  
+  
+    <a name="Clack+-+Web+Application+Environment+for+Common+Lisp"></a>
+    <h1>Clack - Web Application Environment for Common Lisp</h1>
+    <p>Clack is a web application environment for Common Lisp inspired by Python&#039;s WSGI and Ruby&#039;s Rack. Your awesome framework should base on this. </p>
+  
+    <a name="Usage"></a>
+    <h2>Usage</h2>
+    <pre><code>(defpackage simple-app  
   (:use :cl  
         :clack))  
 (in-package :simple-app)  
  
 (defvar *handler*  
     (clackup  
-      #'(lambda (env)  
-          '(200 (:content-type "text/plain") ("Hello, Clack!"))))) </code></pre><p>Now access <a href="http://localhost:5000/">http://localhost:5000/</a> and Clack may show you "Hello, Clack!". </p><p>To stop the server, you should just call <code>(clack:stop *handler*)</code>. </p><a name="About%20Clack"></a><h2>About Clack</h2><a name="What%20is%20Clack%3F"></a><h3>What is Clack?</h3><p>Clack is an interface between CL web applications and web servers. It wraps HTTP requests and responses in the simplest way. This means that it unifies the API for web servers, web frameworks, and software in between (the so-called middleware) into a single method call. </p><p>But not only that. </p><a name="Middleware%20is%20really%20needed"></a><h3>Middleware is really needed</h3><p>Clack provides an idea "Middleware". It allows you to develop something you need without rewriting the existing framework. It can filter HTTP request before it is passed to the application, and can modify HTTP response the application generates. </p><p>This idea is based on that loose coupling is good for writing reusable products. </p><p>There are some middlewares bundled with Clack. You can find them at more below chapter "Bundle Middleware" in this document. </p><a name="Installation"></a><h2>Installation</h2><p>Clack is now available on <a href="https://www.quicklisp.org/beta/">Quicklisp</a>. </p><pre><code>(ql:quickload :clack) </code></pre><a name="Application"></a><h2>Application</h2><p>Clack Application is just a lambda. It takes exactly one argument, the "Environment", and returns the "Response" as a list containing exactly three values. </p><pre><code>(defvar app  
-  #'(lambda (env)  
-      '(200 (:content-type "text/plain") ("Hello, World")))) </code></pre><a name="Clack.App.Route"></a><h3>Clack.App.Route</h3><p>Clack is not a Web Application Framework. But Clack can also be used as such way. </p><p>Clack bundles "Clack.App.Route", written by <a href="http://twitter.com/#!/m2ym">Tomohiro Matsuyama</a>. It allows you to write an URL-based dispatcher, like Ruby's Sinatra. </p><pre><code>(defroutes app (env)  
-  (GET \"/\" #'index)  
-  (GET \"/login\" #'login)  
-  (POST \"/login\" #'authorize)  
-  (GET \"/member/:id\" #'member))  
+      #&#039;(lambda (env)  
+          &#039;(200 (:content-type &quot;text/plain&quot;) (&quot;Hello, Clack!&quot;))))) </code></pre><p>Now access <a href="http://localhost:5000/">http://localhost:5000/</a> and Clack may show you &quot;Hello, Clack!&quot;. </p><p>To stop the server, you should just call <code>(clack:stop *handler*)</code>. </p>
+  
+    <a name="About+Clack"></a>
+    <h2>About Clack</h2>
+    
+  
+    <a name="What+is+Clack%3F"></a>
+    <h3>What is Clack?</h3>
+    <p>Clack is an interface between CL web applications and web servers. It wraps HTTP requests and responses in the simplest way. This means that it unifies the API for web servers, web frameworks, and software in between (the so-called middleware) into a single method call. </p><p>But not only that. </p>
+  
+    <a name="Middleware+is+really+needed"></a>
+    <h3>Middleware is really needed</h3>
+    <p>Clack provides an idea &quot;Middleware&quot;. It allows you to develop something you need without rewriting the existing framework. It can filter HTTP request before it is passed to the application, and can modify HTTP response the application generates. </p><p>This idea is based on that loose coupling is good for writing reusable products. </p><p>There are some middlewares bundled with Clack. You can find them at more below chapter &quot;Bundle Middleware&quot; in this document. </p>
+  
+    <a name="Installation"></a>
+    <h2>Installation</h2>
+    <p>Clack is now available on <a href="https://www.quicklisp.org/beta/">Quicklisp</a>. </p><pre><code>(ql:quickload :clack) </code></pre>
+  
+    <a name="Application"></a>
+    <h2>Application</h2>
+    <p>Clack Application is just a lambda. It takes exactly one argument, the &quot;Environment&quot;, and returns the &quot;Response&quot; as a list containing exactly three values. </p><pre><code>(defvar app  
+  #&#039;(lambda (env)  
+      &#039;(200 (:content-type &quot;text/plain&quot;) (&quot;Hello, World&quot;)))) </code></pre>
+  
+    <a name="Clack.App.Route"></a>
+    <h3>Clack.App.Route</h3>
+    <p>Clack is not a Web Application Framework. But Clack can also be used as such way. </p><p>Clack bundles &quot;Clack.App.Route&quot;, written by <a href="http://twitter.com/#!/m2ym">Tomohiro Matsuyama</a>. It allows you to write an URL-based dispatcher, like Ruby&#039;s Sinatra. </p><pre><code>(defroutes app (env)  
+  (GET \&quot;/\&quot; #&#039;index)  
+  (GET \&quot;/login\&quot; #&#039;login)  
+  (POST \&quot;/login\&quot; #&#039;authorize)  
+  (GET \&quot;/member/:id\&quot; #&#039;member))  
  
-(clackup #'app) </code></pre><a name="The%20Environment"></a><h3>The Environment</h3><p>Example: http://localhost:4242/sns/member?id=3 </p><pre><code>(:request-method :GET  
- :script-name ""  
- :path-info "/sns/member"  
- :query-string "id=3"  
- :server-name "localhost"  
+(clackup #&#039;app) </code></pre>
+  
+    <a name="The+Environment"></a>
+    <h3>The Environment</h3>
+    <p>Example: http://localhost:4242/sns/member?id=3 </p><pre><code>(:request-method :GET  
+ :script-name &quot;&quot;  
+ :path-info &quot;/sns/member&quot;  
+ :query-string &quot;id=3&quot;  
+ :server-name &quot;localhost&quot;  
  :server-port 4242  
- :request-uri "/sns/member?id=3"  
+ :request-uri &quot;/sns/member?id=3&quot;  
  :server-protocol :HTTP/1.1  
- :http-user-agent "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_6; en-US) ..."  
- :http-remote-addr "127.0.0.1"  
+ :http-user-agent &quot;Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_6; en-US) ...&quot;  
+ :http-remote-addr &quot;127.0.0.1&quot;  
  :http-remote-port 26077  
  :http-referer nil  
- :http-host "localhost:4242"  
+ :http-host &quot;localhost:4242&quot;  
  :http-cookies nil  
  :http-server :hunchentoot  
- :%request #&lt;request {11A02249}&gt;) </code></pre><p>The Environment is a list containing at least the following keys and corresponding values. </p><ul><li><code>:request-method</code>  (Required, Keyword): The HTTP request method, must be one of <code> :GET</code> , <code> :HEAD</code> , <code> :OPTIONS</code> , <code> :PUT</code> , <code> :POST</code> , or <code> :DELETE</code> .</li><li><code>:script-name</code>  (Required, String): The initial portion of the request URL's path, corresponding to the application. This may be an empty string if the application corresponds to the server's root URI. If this key is not empty, it must start with a forward slash (<code> /</code> ).</li><li><code>:path-info</code>  (Required, String): The remainder of the request URL's path. This may be an empty string if the request URL targets the application root and does no have a trailing slash.</li><li><code>:query-string</code>  (Optional, String): The portion of the request URL that follows the <code> ?</code> , if any. This key may be empty, but must always be present, even if empty.</li><li><code>:server-name</code>  (Required, String): The resolved server name, or the server IP address.</li><li><code>:server-port</code>  (Required, Integer): The port on which the request is being handled.</li><li><code>:server-protocol</code>  (Required, Keyword): The version of the protocol the client used to send the request. Typically this will be something like <code> :HTTP/1.0</code>  or <code> :HTTP/1.1</code> .</li><li><code>:request-uri</code>  (Required, String): The request URI. Must start with "/".</li><li><code>:server-protocol</code>  (Required, Keyword)</li><li><code>:raw-body</code>  (Optional, Stream)</li><li><code>:http-user-agent</code>  (Optional, String)</li><li><code>:http-referer</code>  (Optional, String)</li><li><code>:remote-addr</code>  (Required, String)</li><li><p><code>:remote-port</code>  (Required, Integer)</p></li><li><p><code>:http-server</code>  (Required, Keyword): The name of Clack Handler, such as <code> :hunchentoot</code> .</p></li></ul><a name="The%20Response"></a><h3>The Response</h3><p>Example: </p><pre><code>(200  
- (:content-type "text/html")  
- ("&lt;b&gt;Hello, Lispers!&lt;/b&gt;")) </code></pre><p>Applications must return a response as a list containing three values. </p><ul><li>Status (Required, Integer): An HTTP status code. This must be an integer greater than or equal to 100, and should be an HTTP status code as documented in RFC 2616.</li><li>Headers (Required, Property List): An HTTP headers. This must be a property list of key/value pairs.</li><li>Body (Required, List or Pathname): The response body. This is either a list or a pathname. If it is a list of strings, Handler should output it with #\NewLine for each elements. The body can instead be a pathname for serving static files.</li></ul><a name="Handler"></a><h2>Handler</h2><p>Clack Applications run via Clack Handlers, which are in turn responsible for implementing the HTTP protocol and abstracting the server. </p><p>Now Clack Applications works on Hunchentoot and Apache, by using following handler. </p><ul><li>Clack.Handler.Hunchentoot</li><li>Clack.Handler.Apache</li></ul><p>If you hope them to run on other server (such as AllegroServe or teepeedee2), you can write a handler for it easily. </p><a name="Middleware"></a><h2>Middleware</h2><p>Middleware is one of the Clack Component. It takes another Application and runs it. </p><a name="Bundle%20Middleware"></a><h3>Bundle Middleware</h3><ul><li>Clack.Middleware.Static - Serves static files.</li><li>Clack.Middleware.Logger - Logging in Clack Application or Middleware.</li><li>Clack.Middleware.Session - Session management.</li></ul><a name="Contrib%20Middleware"></a><h3>Contrib Middleware</h3><ul><li>Clack.Middleware.OAuth - Authorization by OAuth.</li><li>Clack.Middleware.Csrf - Provides easy way to protect from CSRF.</li><li>Clack.Middleware.Clsql - For CLSQL connection management.</li><li>Clack.Middleware.Rucksack - For wrapping Rucksack transaction.</li></ul><a name="How%20to%20write%20Middleware%3F"></a><h3>How to write Middleware?</h3><p>All you have to do is to inherit from <code>&lt;middleware&gt;</code> and then implement the callback <code> call</code>  method (or <code> make-app</code>  method that would return a function) to do the actual work. You can use <code> call-next</code>  to call the original (wrapped) application. </p><pre><code>(defpackage clack.middleware.example  
+ :%request #&lt;request {11A02249}&gt;) </code></pre><p>The Environment is a list containing at least the following keys and corresponding values. </p><ul><li><code>:request-method</code>  (Required, Keyword): The HTTP request method, must be one of <code> :GET</code> , <code> :HEAD</code> , <code> :OPTIONS</code> , <code> :PUT</code> , <code> :POST</code> , or <code> :DELETE</code> .</li><li><code>:script-name</code>  (Required, String): The initial portion of the request URL&#039;s path, corresponding to the application. This may be an empty string if the application corresponds to the server&#039;s root URI. If this key is not empty, it must start with a forward slash (<code> /</code> ).</li><li><code>:path-info</code>  (Required, String): The remainder of the request URL&#039;s path. This may be an empty string if the request URL targets the application root and does no have a trailing slash.</li><li><code>:query-string</code>  (Optional, String): The portion of the request URL that follows the <code> ?</code> , if any. This key may be empty, but must always be present, even if empty.</li><li><code>:server-name</code>  (Required, String): The resolved server name, or the server IP address.</li><li><code>:server-port</code>  (Required, Integer): The port on which the request is being handled.</li><li><code>:server-protocol</code>  (Required, Keyword): The version of the protocol the client used to send the request. Typically this will be something like <code> :HTTP/1.0</code>  or <code> :HTTP/1.1</code> .</li><li><code>:request-uri</code>  (Required, String): The request URI. Must start with &quot;/&quot;.</li><li><code>:server-protocol</code>  (Required, Keyword)</li><li><code>:raw-body</code>  (Optional, Stream)</li><li><code>:http-user-agent</code>  (Optional, String)</li><li><code>:http-referer</code>  (Optional, String)</li><li><code>:remote-addr</code>  (Required, String)</li><li><p><code>:remote-port</code>  (Required, Integer)</p></li><li><p><code>:http-server</code>  (Required, Keyword): The name of Clack Handler, such as <code> :hunchentoot</code> .</p></li></ul>
+  
+    <a name="The+Response"></a>
+    <h3>The Response</h3>
+    <p>Example: </p><pre><code>(200  
+ (:content-type &quot;text/html&quot;)  
+ (&quot;&lt;b&gt;Hello, Lispers!&lt;/b&gt;&quot;)) </code></pre><p>Applications must return a response as a list containing three values. </p><ul><li>Status (Required, Integer): An HTTP status code. This must be an integer greater than or equal to 100, and should be an HTTP status code as documented in RFC 2616.</li><li>Headers (Required, Property List): An HTTP headers. This must be a property list of key/value pairs.</li><li>Body (Required, List or Pathname): The response body. This is either a list or a pathname. If it is a list of strings, Handler should output it with #\NewLine for each elements. The body can instead be a pathname for serving static files.</li></ul>
+  
+    <a name="Handler"></a>
+    <h2>Handler</h2>
+    <p>Clack Applications run via Clack Handlers, which are in turn responsible for implementing the HTTP protocol and abstracting the server. </p><p>Now Clack Applications works on Hunchentoot and Apache, by using following handler. </p><ul><li>Clack.Handler.Hunchentoot</li><li>Clack.Handler.Apache</li></ul><p>If you hope them to run on other server (such as AllegroServe or teepeedee2), you can write a handler for it easily. </p>
+  
+    <a name="Middleware"></a>
+    <h2>Middleware</h2>
+    <p>Middleware is one of the Clack Component. It takes another Application and runs it. </p>
+  
+    <a name="Bundle+Middleware"></a>
+    <h3>Bundle Middleware</h3>
+    <ul><li>Clack.Middleware.Static - Serves static files.</li><li>Clack.Middleware.Logger - Logging in Clack Application or Middleware.</li><li>Clack.Middleware.Session - Session management.</li></ul>
+  
+    <a name="Contrib+Middleware"></a>
+    <h3>Contrib Middleware</h3>
+    <ul><li>Clack.Middleware.OAuth - Authorization by OAuth.</li><li>Clack.Middleware.Csrf - Provides easy way to protect from CSRF.</li><li>Clack.Middleware.Clsql - For CLSQL connection management.</li><li>Clack.Middleware.Rucksack - For wrapping Rucksack transaction.</li></ul>
+  
+    <a name="How+to+write+Middleware%3F"></a>
+    <h3>How to write Middleware?</h3>
+    <p>All you have to do is to inherit from <code>&lt;middleware&gt;</code> and then implement the callback <code> call</code>  method (or <code> make-app</code>  method that would return a function) to do the actual work. You can use <code> call-next</code>  to call the original (wrapped) application. </p><pre><code>(defpackage clack.middleware.example  
   (:use :cl :clack)  
   (:export :&lt;simple-middleware&gt;))  
 (in-package :clack.middleware.example)  
  
 (defclass &lt;simple-middleware&gt; (&lt;middleware&gt;) ())  
 (defmethod call ((this &lt;simple-middleware&gt;) env)  
-  `(200 (:content-type "text/html")  
-    ,(cons "Hello, Clack Middleware!&lt;br /&gt;"  
+  `(200 (:content-type &quot;text/html&quot;)  
+    ,(cons &quot;Hello, Clack Middleware!&lt;br /&gt;&quot;  
            (nth 2 (call-next this env)))))  
  
 (defpackage simple-app  
@@ -65,11 +124,28 @@
 (in-package :simple-app)  
  
 (defvar app  
-  #'(lambda (env)  
-      '(200 (:content-type "text/plain") ("Hello, Clack!"))))  
+  #&#039;(lambda (env)  
+      &#039;(200 (:content-type &quot;text/plain&quot;) (&quot;Hello, Clack!&quot;))))  
  
 (clackup (builder &lt;simple-middleware&gt; app)) </code></pre><p>And you should get following response in time. </p><pre><code>Hello, Clack Middleware!  
-Hello, Clack! </code></pre><a name="Dependency"></a><h2>Dependency</h2><ul><li>cl-annot</li><li>CL-PPCRE</li><li>CL-FAD</li><li>Alexandria</li><li>SPLIT-SEQUENCE</li><li>Anaphora</li><li>metabang-bind</li><li>Hunchentoot</li><li>modlisp</li><li>cl-oauth</li></ul><a name="Author"></a><h2>Author</h2><ul><li>Eitarow Fukamachi (e.arrows@gmail.com)</li></ul><a name="Copyright"></a><h2>Copyright</h2><p>Copyright (c) 2011 Eitarow Fukamachi </p><a name="Contributors"></a><h2>Contributors</h2><ul><li>Tomohiro Matsuyama (tomo@cx4a.org)</li><li>Norihisa Fujita (n.fujita@ariel-networks.com)</li></ul><a name="License"></a><h2>License</h2><p>Licensed under the LLGPL License. </p>
+Hello, Clack! </code></pre>
+  
+    <a name="Author"></a>
+    <h2>Author</h2>
+    <ul><li>Eitarow Fukamachi (e.arrows@gmail.com)</li></ul>
+  
+    <a name="Copyright"></a>
+    <h2>Copyright</h2>
+    <p>Copyright (c) 2011 Eitarow Fukamachi </p>
+  
+    <a name="Contributors"></a>
+    <h2>Contributors</h2>
+    <ul><li>Tomohiro Matsuyama (tomo@cx4a.org)</li><li>Norihisa Fujita (n.fujita@ariel-networks.com)</li></ul>
+  
+    <a name="License"></a>
+    <h2>License</h2>
+    <p>Licensed under the LLGPL License. </p>
+  
 
 <h2>API Reference</h2>
 
@@ -114,12 +190,6 @@ Hello, Clack! </code></pre><a name="Dependency"></a><h2>Dependency</h2><ul><li>c
   <li>
     <a href="clack.handler.html">
       Clack.Handler
-    </a>
-  </li>
-
-  <li>
-    <a href="clack.handler.hunchentoot.html">
-      Clack.Handler.Hunchentoot
     </a>
   </li>
 
