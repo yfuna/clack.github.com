@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Clack - Web Application Environment for Common Lisp</title>
+    <link href="../main.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+
+<h1><a href="/">Clack</a></h1>
+<p class="tagline">Revenge of Lisp in Web</p>
+
+<h2>Chapter 1: Introduction</h2>
+
+<div id="main">
+
+<p>Clack is a web application environment for Common Lisp, inspired by Python's WSGI, Ruby's Rack and Perl's Plack. By abstracting HTTP into a simple API, Clack allows your web applications to be portable and be reusable.</p>
+
+<p>If you are already familiar with Web development, you may know why these things so important -- because Web applications are in beta forever.</p>
+
+<p>It means we have to improve applications day by day. Your application will be 3 times larger than you thought. The most are the functions that you did not imagine at the time of development. Therefore your application should be clean and should be modulable.</p>
+
+<p>Besides that, there is another problem. Your application would keep running than you imagined. As a result, your application is getting older little by little. Your web server may be old-fashioned 5 years later. Your web framework may be not maintained in the future. Same as libraries you used. What will you do then, if your application heavily depends on a specific product. Accordingly, we have to keep our web applications to be easy to modify.</p>
+
+<p>Clack was developed to solve these problems. Clack works like glue of a web application. Clack isn't a web application framework. Clack is a collection of modular components. A web application based on Clack looks like a bunch of components which talks each other.</p>
+
+<p>Be relieved, it is easy to learn how to use Clack, at least, than learning other web applications. Though I can't justify it in this short introduction, I leave some informations that you can judge whether we worth trusted for instead.</p>
+
+<h3>Clack is ready to use</h3>
+
+<p>All the functions of the core of Clack are already implemented in the first official release in June, 2011. Since then, no serious bugs have been found and no changes without backward compatibility have done. Clack seems stable.</p>
+
+<h3>Clack is getting better</h3>
+
+<p>Clack is <a href="https://github.com/fukamachi/clack/tags">released every month</a>. There are many kind of changes in them, but, I really wanna say is, continuous improvement has been done. In the process, a function of Clack has been strengthened steadily, and even if a fatal bug was found in future by any chance, we can expect it is fixed by next month.</p>
+
+<h3>Clack is well tested</h3>
+
+<p>The reason which only a few bugs were found so far is many unit tests. It has 173 tests now. The test coverage is kept more than 70% (I wanna improve it more, though).</p>
+
+<p>Of course, all releases had passed those all tests, not only on 1 CL implementation but 3 -- Clozure CL, SBCL and CLISP. You can check the current status on <a href="http://ci.clacklisp.org/">http://ci.clacklisp.org/</a>.</p>
+
+<!--
+<div id="footer">
+  <div class="left"></div>
+  <div class="right">2: Getting Clack &gt;&gt;</div>
+</div>
+-->
+
+</div>
+
+  </body>
+</html>
