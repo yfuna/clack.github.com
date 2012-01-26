@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>2. Getting Clack | Tutorial | Clack - Web application environment for Common Lisp</title>
+    <link href="../main.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+
+<h1><a href="/">Clack</a></h1>
+<p class="tagline">Revenge of Lisp in Web</p>
+
+<h2>Chapter 2: Getting Clack</h2>
+
+<div id="main">
+
+<p>The easiest way to install Clack is to take advantage of <a href="http://beta.quicklisp.org/">Quicklisp</a>.</p>
+
+<pre>
+(ql:quickload :clack)
+</pre>
+
+<p>Then all libraries including dependencies will be downloaded and be installed automatically.</p>
+
+<p>To verify that you have everything installed correctly, let's start a Clack server. You don't have to understand the following code now. It will be mentioned the next chapter.</p>
+
+<pre>
+(clack:clackup
+  (lambda (req)
+    (declare (ignore req))
+    '(200 (:content-type "text/plain") ("Hello, Clack!"))))
+
+;-> Hunchentoot server is started.
+    Listening on localhost:5000.
+    #<CLACK.HANDLER:<HANDLER> #x30200A102B3D>
+</pre>
+
+<p>Clack runs on localhost port 5000 by default. Open the URL <a href="http://127.0.0.1:5000/">http://127.0.0.1:5000/</a> on your browser and Clack show you "Hello, Clack!".</p>
+
+<p>To stop the process, get back to REPL and execute the following code.</p>
+
+<pre>
+(clack:stop *)
+</pre>
+
+<div id="footer">
+  <div class="left"><a href="01-introduction.html">&lt;&lt;1. Introduction</a></div>
+  <div class="center"><a href="./">Tutorial</a></div>
+  <div class="right"><!--<a href="">3. Hello, World! &gt;&gt;</a>--></div>
+</div>
+
+</div>

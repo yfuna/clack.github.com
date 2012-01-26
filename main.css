@@ -45,17 +45,33 @@ pre {
   background-color: #eee;
   white-space: pre-wrap;
   font-family: Menlo, 'andale mono', 'lucida console', monospace;
+  font-size: 0.9em;
+  line-height: 1.6em;
 }
 
 #main {
   margin: 0 10px;
 }
 
-#footer .left {
-  float: left;
+#footer {
+  text-align: center;
+  font-size: 0.9em;
+  margin: 20px 4px 10px;
+  border-top: 1px solid #ccc;
+  padding: 4px;
 }
 
+#footer * {
+  display: inline-block;
+  width: 170px;
+}
+
+#footer .left {
+  text-align: left;
+}
+#footer .center {
+  text-align: center;
+}
 #footer .right {
-  float: right;
   text-align: right;
 }
