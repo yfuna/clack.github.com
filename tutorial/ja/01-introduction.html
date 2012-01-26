@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>1. Introduction | Tutorial | Clack - Web application environment for Common Lisp</title>
+    <link href="../../main.css" rel="stylesheet" type="text/css" />
+    <link href="./ja.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+
+<h1><a href="/">Clack</a></h1>
+<p class="tagline">Revenge of Lisp in Web</p>
+
+<h2>Chapter 1: イントロダクション</h2>
+
+<p class="language">
+  <a href="../01-introduction.html">English</a> | <strong>日本語</strong>
+</p>
+
+<div id="main">
+
+<p>ClackはCommon LispのためのWebアプリケーション環境です。PythonのWSGIやRubyのRack、PerlのPlackに影響を受けています。ClackはHTTPを抽象化して単純なAPIにすることで、Webアプリケーションをポータブルで再利用可能なものにします。</p>
+
+<p>既にWeb開発に慣れ親しんだ人なら、なぜこれらが重要なのかを知っていると思います。なぜなら、Webアプリケーションは永遠のベータ版だからです。</p>
+
+<p>これはつまり、Webアプリケーションは日々改善されていかなければならないことを意味します。アプリケーションは自分が考えているものの3倍大きくなると考えたほうがいいです。きっと開発時には考えもしなかったような機能がほとんどになります。そのため、我々はWebアプリケーションを簡単に修正できる状態にしておく必要があります。</p>
+
+<p>加えて、もう一つ問題があります。Web業界は流れが早いことです。おそらくほとんどの技術は5年以内にすべて入れ替わってしまいます。</p>
+
+<p>そこで考えなければならないのは、あなたが書いたコードは自分が想像していたより長い期間使われるだろうことです。そして、アプリケーションは日に日に古くなっていきます。5年後のことを想像してください。使っているWebサーバはそのときには古臭くなっているかもしれません。Webフレームワークは将来はメンテナンスされてないかもしれません。使っているライブラリについても同様です。そんなとき、どうしますか。5年前に書かれたコードを修正して、時代に沿ったものに変える必要があります。僕は実際にそういった仕事をしたことはないけれど、楽しい仕事ではないでしょう。</p>
+
+<p>Clackはそのような問題を解決するために開発されました。ClackはWebアプリケーションの中で、まるで「糊」のように働きます。ClackはWebフレームワークではありません。モジュール化されたいくつものコンポーネントの集まりです。Clackの上に作られたアプリケーションは、お互いが会話しあう再利用可能なコンポーネントの集合のように見えるでしょう。</p>
+
+<p>また、ClackはHTTPとWebサーバを抽象化するため、バックエンドが何であるかを意識する必要がありません。ほんの少し書き換えるだけで、同じコードを違うWebサーバで走らせることができます。</p>
+
+<p>もちろん、この章でいかにClackが素晴らしいかをすべて語ることはできません。ただ、代わりに我々が信頼に足るかどうかを判断する情報をいくつか残しておきます。</p>
+
+<h3>Clackは完成している</h3>
+
+<p>Clackのコアの機能はすべて、2011年6月の最初の公式リリース時に実装されていました。それ以来重大なバグは見つかっていませんし、後方互換性のない変更もありませんでした。Clackは十分安定しています。</p>
+
+<h3>Clackは成長し続けている</h3>
+
+<p>Clackは<a href="https://github.com/fukamachi/clack/tags">毎月リリース</a>されています。その中にはさまざまな種類の変更がありますが──僕が強調したいのは──継続的な改善が為されてきた、ということです。その過程でClackの機能は強化されてきましたし、またたとえ今後に重大なバグが見つかったとしても次の月には修正されていることが期待できます。</p>
+
+<h3>Clackはドキュメントが充実している</h3>
+
+<p>Clackのほとんどの関数、変数、マクロにはドキュメント文字列がついています。パッケージも。なぜなら我々は、それ自体が自明の場合でない限り、ソースコードのすべての要素にはドキュメント文字列が必要だと考えるからです。</p>
+
+<p>また、そのドキュメント文字列は<a href="http://clacklisp.org/doc/">HTMLとして公開されています</a>。何かの助けにはなると思います。</p>
+
+<h3>Clackはよくテストされている</h3>
+
+<p>今まで見つかったバグがとても少ない理由は、たくさんの単体テストによります。Clackには現在173個のテストがあり、テストカバレッジは70%以上を保っています(さらに改善したいと思っているけれど)。</p>
+
+<p>もちろん、すべてのリリースはこれらのテストを通っています。1つの処理系だけでなく、Clozure CLとSBCL、CLISPの3つの処理系で。現在の状況は<a href="http://ci.clacklisp.org/">http://ci.clacklisp.org/</a>で見ることができます。</p>
+
+<div id="footer">
+  <div class="left"></div>
+  <div class="center"><a href="./">Tutorial</a></div>
+  <div class="right"><!--<a href="02-getting-clack.html">2. Getting Clack &gt;&gt;</a>--></div>
+</div>
+
+</div>
+
+  </body>
+</html>

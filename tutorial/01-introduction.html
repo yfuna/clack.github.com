@@ -12,19 +12,27 @@
 
 <h2>Chapter 1: Introduction</h2>
 
+<p class="language">
+  <strong>English</strong> | <a href="./ja/01-introduction.html">日本語</a>
+</p>
+
 <div id="main">
 
 <p>Clack is a web application environment for Common Lisp, inspired by Python's WSGI, Ruby's Rack and Perl's Plack. By abstracting HTTP into a simple API, Clack allows your web applications to be portable and be reusable.</p>
 
 <p>If you are already familiar with Web development, you may know why these things so important -- because Web applications are in beta forever.</p>
 
-<p>It means we have to improve applications day by day. Your application will be 3 times larger than you thought. The most are the functions that you did not imagine at the time of development. Therefore your application should be clean and should be modulable.</p>
+<p>It means we have to improve applications day by day. Your application would be 3 times larger than you thought. There are many unctions that you did not imagine at the time of development. Accordingly, we have to keep our web applications to be clean, modulable, and be easy to modify.</p>
 
-<p>Besides that, there is another problem. Your application would keep running than you imagined. As a result, your application is getting older little by little. Your web server may be old-fashioned 5 years later. Your web framework may be not maintained in the future. Same as libraries you used. What will you do then, if your application heavily depends on a specific product. Accordingly, we have to keep our web applications to be easy to modify.</p>
+<p>Besides that, there is another matter. -- Web world goes fast. Probably most of technologies will be changed within 5 years.</p>
 
-<p>Clack was developed to solve these problems. Clack works like glue of a web application. Clack isn't a web application framework. Clack is a collection of modular components. A web application based on Clack looks like a bunch of components which talks each other.</p>
+<p>What we have to think is, your codes would be applied longer than you imagined. As a result, your application is getting older little by little. Imagine 5 years later. Your web server may be old-fashioned then. Your web framework may be not maintained in the future. Same as libraries you used. What will you do, then? You need to modify your own code written in 5 years ago to catch up the times. I acutually don't know how the job goes, but I guess it seems not so pleasant job.</p>
 
-<p>Be relieved, it is easy to learn how to use Clack, at least, than learning other web applications. Though I can't justify it in this short introduction, I leave some informations that you can judge whether we worth trusted for instead.</p>
+<p>Clack was developed to solve these problems. Clack works like "glue" of a web application. Clack isn't a web application framework. Clack is a collection of modular components. A web application based on Clack looks like a bunch of reusable components which talks each other.</p>
+
+<p>And, Clack abstracts HTTP and a Web server. You don't need to be aware of what the backend is. Only by rewriting your application just a little, you can run the same code on a different Web server.</p>
+
+<p>Though it isn't possible for me to talk all about how Clack is splendid in this short introduction, I leave some informations that you can judge whether we worth trusted for instead.</p>
 
 <h3>Clack is ready to use</h3>
 
@@ -36,7 +44,7 @@
 
 <h3>Clack is well-documented</h3>
 
-<p>Most of functions, variables and macros in Clack have docstrings. Even packages. We think all elements in source files need a documentation string except it is really self-explanatory.</p>
+<p>Most of functions, variables and macros in Clack have docstrings. Even packages. Because we think all elements in source files need a documentation string except it is really self-explanatory.</p>
 
 <p>We also provides them as HTML pages at <a href="http://clacklisp.org/doc/">http://clacklisp.org/doc/</a>. It would help you.</p>
 

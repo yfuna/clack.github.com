@@ -75,3 +75,9 @@ pre {
 #footer .right {
   text-align: right;
 }
+
+.language {
+  position: absolute;
+  top: 0;
+  right: 100px;
+}
