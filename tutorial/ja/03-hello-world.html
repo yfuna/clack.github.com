@@ -60,7 +60,7 @@
      '(200
        (:content-type "text/html")
        ("<html><head></head><body>Hello again</body></html>")))
-    (t '(404 (:content-type "text/plain") "Not found"))))
+    (t '(404 (:content-type "text/plain") ("Not found")))))
 
 (clack:clackup #'app)
 </pre>
