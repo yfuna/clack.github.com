@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>2. Getting Clack | Tutorial | Clack - Web application environment for Common Lisp</title>
+    <link href="../../main.css" rel="stylesheet" type="text/css" />
+    <link href="./ja.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+
+<h1><a href="/">Clack</a></h1>
+<p class="tagline">Revenge of Lisp in Web</p>
+
+<h2>Chapter 3: Hello, World!</h2>
+
+<p class="language">
+  <a href="../03-hello-world.html">English</a> | <strong>日本語</strong>
+</p>
+
+<div id="main">
+
+<p>この章では、前の章で出てきた小さなプログラムをもう一度取り上げます。以下は少し丁寧に書かれた"Hello, World!"を出力するプログラムです。</p>
+
+<pre>
+(defun app (env)
+  (declare (ignore env))
+  '(200
+    (:content-type "text/plain")
+    ("Hello, World!")))
+
+(clack:clackup #'app)
+</pre>
+
+<p>このように、Clack applicationはただの関数です。これは<code>env</code>という引数を1つ受け取り、HTTP status、ヘッダ、本文の3つを含むリストを返します。</p>
+
+<p>試しにこれを少し変更してみましょう。</p>
+
+<pre>
+(defun app (env)
+  `(200
+    (:content-type "text/plain")
+    ("Hello stranger from:"
+     ,(getf env :remote-addr))))
+
+(clack:clackup #'app)
+</pre>
+
+<p>これはリモートアドレスを表示するコードです。もしローカルでClackを動かしている場合は通常127.0.0.1になります。<code>env</code>は他にもHTTPの情報を多く含むプロパティリストです。</p>
+
+<p>また、テキストの代わりにファイルをbodyとして返すこともできます。以下はもう少し複雑にした例です。</p>
+
+<pre>
+(defun app (env)
+  (cond
+    ((string= (getf env :path-info) "/favicon.ico")
+     '(200
+       (:content-type "image/x-icon")
+       #p"/path/to/favicon.ico"))
+    ((string= (getf env :path-info) "/")
+     '(200
+       (:content-type "text/html")
+       ("<html><head></head><body>Hello again</body></html>")))
+    (t '(404 (:content-type "text/plain") "Not found"))))
+
+(clack:clackup #'app)
+</pre>
+
+<p>このアプリケーションは、"/favicon.ico"にアクセスするとfavicon.ico、ルート(/)にアクセスすると"Hello again"、それ以外では404を返します。</p>
+
+</div>
+
+<div id="footer">
+  <div class="left"><a href="02-getting-clack.html">&lt;&lt;2. Getting Clack</a></div>
+  <div class="center"><a href="./">Tutorial</a></div>
+  <div class="right"><!--<a href="">4. Request & Response &gt;&gt;</a>--></div>
+</div>
+
+  </body>
+</html>

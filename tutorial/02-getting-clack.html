@@ -30,8 +30,8 @@
 
 <pre>
 (clack:clackup
-  (lambda (req)
-    (declare (ignore req))
+  (lambda (env)
+    (declare (ignore env))
     '(200 (:content-type "text/plain") ("Hello, Clack!"))))
 
 ;-> Hunchentoot server is started.
@@ -52,7 +52,7 @@
 <div id="footer">
   <div class="left"><a href="01-introduction.html">&lt;&lt;1. Introduction</a></div>
   <div class="center"><a href="./">Tutorial</a></div>
-  <div class="right"><!--<a href="03-hello-world.html">3. Hello, World! &gt;&gt;</a>--></div>
+  <div class="right"><a href="03-hello-world.html">3. Hello, World! &gt;&gt;</a></div>
 </div>
 
   </body>

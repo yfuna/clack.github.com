@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>2. Getting Clack | Tutorial | Clack - Web application environment for Common Lisp</title>
+    <link href="../main.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+
+<h1><a href="/">Clack</a></h1>
+<p class="tagline">Revenge of Lisp in Web</p>
+
+<h2>Chapter 3: Hello, World!</h2>
+
+<p class="language">
+  <strong>English</strong> | <a href="./ja/03-hello-world.html">日本語</a>
+</p>
+
+<div id="main">
+
+<p>In this chapter, take up the first small program that was appeared in the previous chapter again. Here's the "Hello, World!" code written more kindly.</p>
+
+<pre>
+(defun app (env)
+  (declare (ignore env))
+  '(200
+    (:content-type "text/plain")
+    ("Hello, World!")))
+
+(clack:clackup #'app)
+</pre>
+
+<p>You can see Clack application is just a function which takes exactly one argument <code>env</code> and returns a list containing exactly three values -- HTTP status, headers and body.</p>
+
+<p>Let's change it a little like this for trial.</p>
+
+<pre>
+(defun app (env)
+  `(200
+    (:content-type "text/plain")
+    ("Hello stranger from:"
+     ,(getf env :remote-addr))))
+
+(clack:clackup #'app)
+</pre>
+
+<p>This code would show you the remote address. Normally it should be 127.0.0.1 if you're running the server on your localhost. The <code>env</code> is a property list which contains lots of information about an HTTP connection.</p>
+
+<p>It also allows to return a file as the body for instead of texts. Here's more complicated example.</p>
+
+<pre>
+(defun app (env)
+  (cond
+    ((string= (getf env :path-info) "/favicon.ico")
+     '(200
+       (:content-type "image/x-icon")
+       #p"/path/to/favicon.ico"))
+    ((string= (getf env :path-info) "/")
+     '(200
+       (:content-type "text/html")
+       ("<html><head></head><body>Hello again</body></html>")))
+    (t '(404 (:content-type "text/plain") "Not found"))))
+
+(clack:clackup #'app)
+</pre>
+
+<p>This app would serve favicon.ico if the request path is "/favicon.ico", "Hello again" for the request to the root (/) and otherwise 404.</p>
+
+</div>
+
+<div id="footer">
+  <div class="left"><a href="02-getting-clack.html">&lt;&lt;2. Getting Clack</a></div>
+  <div class="center"><a href="./">Tutorial</a></div>
+  <div class="right"><!--<a href="">4. Request & Response &gt;&gt;</a>--></div>
+</div>
+
+  </body>
+</html>
