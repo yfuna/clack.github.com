@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>4. The Environment | Tutorial | Clack - Web application environment for Common Lisp</title>
+    <link href="../main.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+
+<h1><a href="/">Clack</a></h1>
+<p class="tagline">Revenge of Lisp in Web</p>
+
+<h2>Chapter 4: The Environment</h2>
+
+<p class="language">
+  <strong>English</strong> | <a href="./ja/04-the-environment.html">日本語</a>
+</p>
+
+<div id="main">
+
+<p>In this chapter, we're looking into the content of <code>env</code>. When you access to the server on localhost, like http://localhost:4242/sns/member?id=3, the <code>env</code> would be like this.</p>
+
+<pre>
+(:request-method :GET
+ :script-name ""
+ :path-info "/sns/member"
+ :query-string "id=3"
+ :server-name "localhost"
+ :server-port 4242
+ :request-uri "/sns/member?id=3"
+ :server-protocol :HTTP/1.1
+ :http-user-agent "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_6; en-US) ..."
+ :remote-addr "127.0.0.1"
+ :remote-port 26077
+ :http-referer nil
+ :http-host "localhost:4242"
+ :http-cookies nil
+ :http-server :hunchentoot
+ :%request #<request {11A02249}>)
+</pre>
+
+<br />
+
+<p>And here's the description of each values. Mostly you don't need to memorize all these things, except you're going to create a "Clack Handler" (This is something like an adapter between Clack and a Web server). Relax and read as just informations.</p>
+
+<br />
+
+<dl>
+  <dt><code>:request-method</code>  (Required, Keyword)</dt>
+  <dd>The HTTP request method, must be one of <code> :GET</code> , <code> :HEAD</code> , <code> :OPTIONS</code> , <code> :PUT</code> , <code> :POST</code> , or <code> :DELETE</code> .</dd>
+  <dt><code>:script-name</code>  (Required, String)</dt>
+  <dd>The initial portion of the request URL&#039;s path, corresponding to the application. This may be an empty string if the application corresponds to the server&#039;s root URI. If this key is not empty, it must start with a forward slash (<code> /</code> ).</dd>
+  <dt><code>:path-info</code>  (Required, String)</dt>
+  <dd>The remainder of the request URL&#039;s path. This may be an empty string if the request URL targets the application root and does no have a trailing slash.</ldd>
+  <dt><code>:query-string</code>  (Optional, String)</dt>
+  <dd>The portion of the request URL that follows the <code> ?</code> , if any. This key may be empty, but must always be present, even if empty.</dd>
+  <dt><code>:server-name</code>  (Required, String)</dt>
+  <dd>The resolved server name, or the server IP address.</dd>
+  <dt><code>:server-port</code>  (Required, Integer)</dt>
+  <dd>The port on which the request is being handled.</dd>
+  <dt><code>:server-protocol</code>  (Required, Keyword)</dt>
+  <dd>The version of the protocol the client used to send the request. Typically this will be something like <code> :HTTP/1.0</code>  or <code> :HTTP/1.1</code> .</dd>
+  <dt><code>:request-uri</code>  (Required, String)</dt>
+  <dd>The request URI. Must start with &quot;/&quot;.</dd>
+  <dt><code>:server-protocol</code>  (Required, Keyword)</dt>
+  <dt><code>:raw-body</code>  (Optional, Stream)</dt>
+  <dt><code>:http-user-agent</code>  (Optional, String)</dt>
+  <dt><code>:http-referer</code>  (Optional, String)</dt>
+  <dt><code>:remote-addr</code>  (Required, String)</dt>
+  <dt><code>:remote-port</code>  (Required, Integer)</dt>
+  <dt><code>:http-server</code>  (Required, Keyword)</dt>
+  <dd>The name of Clack Handler, such as <code>:hunchentoot</code> or <code>:apache</code>.</dd>
+</dl>
+
+</div>
+
+<div id="footer">
+  <div class="left"><a href="03-hello-world.html">&lt;&lt;3. Hello, World!</a></div>
+  <div class="center"><a href="./">Tutorial</a></div>
+  <div class="right"><!--<a href="">5. What's Component? &gt;&gt;</a>--></div>
+</div>
+
+  </body>
+</html>
