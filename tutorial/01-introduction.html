@@ -20,15 +20,21 @@
 
 <p>Clack is a web application environment for Common Lisp, inspired by Python's WSGI, Ruby's Rack and Perl's Plack. By abstracting HTTP into a simple API, Clack allows your web applications to be portable and be reusable.</p>
 
-<p>If you are already familiar with Web development, you may know why these things so important -- because Web applications are in beta forever.</p>
+<h3>Beta forever</h3>
+
+<p>If you are familiar with Web development, you may know why these things so important -- because Web applications are in beta forever.</p>
 
 <p>It means we have to improve applications day by day. Your application would be 3 times larger than you thought. There are many functions that you did not imagine at the time of development. Accordingly, we have to keep our web applications to be clean, modulable, and be easy to modify.</p>
+
+<h3>Technologies changes fast</h3>
 
 <p>Besides that, there is another matter. -- Web world goes fast. Probably most of technologies will be changed within 5 years.</p>
 
 <p>What we have to think is, your codes would be applied longer than you imagined. As a result, your application is getting older little by little. Imagine 5 years later. Your web server may be old-fashioned then. Your web framework may be not maintained in the future. Same as libraries you used. What will you do, then? You need to modify your own code written in 5 years ago to catch up the times. Foutunately I acutually don't know how the job goes, but I guess it seems not so pleasant job.</p>
 
-<p>Clack was developed to solve these problems. Clack works like "glue" of a web application. Clack isn't a web application framework. Clack is a collection of modular components. A web application based on Clack looks like a bunch of reusable components which talks each other.</p>
+<h3>What Clack solves</h3>
+
+<p>Clack was developed to solve these problems. Clack works like "glue" of a web application. Honestly, Clack isn't a web application framework. Clack is a collection of modular components. Each components are lazy-coupling and it is easy to replace it partly.</p>
 
 <p>And, Clack abstracts HTTP and a Web server. You don't need to be aware of what the backend is. As web applications built on Clack doesn't depend on which backend is, you can run the same code on a different Web server only by rewriting your application just a little.</p>
 
