@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>5. コンポーネント | Tutorial | Clack - Web application environment for Common Lisp</title>
+    <link href="../../main.css" rel="stylesheet" type="text/css" />
+    <link href="./ja.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+
+<h1><a href="/">Clack</a></h1>
+<p class="tagline">Revenge of Lisp in Web</p>
+
+<h2>Chapter 5: コンポーネント</h2>
+
+<p class="language">
+  <a href="../05-component.html">English</a> | <strong>日本語</strong>
+</p>
+
+<div id="main">
+
+<p>実を言うと、僕は<a href="03-hello-world.html">第3章</a>で1つ嘘をついていました。<cite>--Clackのアプリケーションはただの関数です。--</cite> 正直に言えば、<strong>アプリケーションは必ずしも関数ではありません</strong>。以下の例を見てください。</p>
+
+<pre>
+;; 分かりやすさのためにシンボルをimportしておきます
+(import '(clack:call clack:<component>))
+
+(defclass &lt;sample-app&gt; (&lt;component&gt;) ())
+
+(defmethod call ((this &lt;sample-app&gt;) env)
+  (declare (ignore env))
+  '(200
+    (:content-type "text/plain")
+    ("Hello, Clack!")))
+
+(clack:clackup
+  (make-instance '&lt;sample-app&gt;))
+</pre>
+
+<p>前に見たものととても似ていませんか？ 関数の中身はメソッド<code>call</code>に移動し、<code>clackup</code>には<code>&lt;sample-app&gt;</code>のインスタンスを渡しています。</p>
+
+<p>まとめるなら、<code>clackup</code>はアプリケーションとして、関数か、<code>&lt;component&gt;</code>のサブクラスのインスタンスを受け取ることができます。すべてのコンポーネントには、リクエストごとに呼び出されるメソッド<code>call</code>がある必要があります。</p>
+
+<p>まだ、これをどのように扱えばいいのかわからないかもしれませんが、実例は後ほど取り上げます。ここではただ、<code>clackup</code>にCLOSインスタンスも渡せる、ということだけ覚えておいてください。</p>
+
+</div>
+
+<div id="footer">
+  <div class="left"><a href="04-the-environment.html">&lt;&lt;4. 引数ENVの中身</a></div>
+  <div class="center"><a href="./">Tutorial</a></div>
+  <div class="right"><!--<a href="">6. ミドルウェア &gt;&gt;</a>--></div>
+</div>
+
+  </body>
+</html>

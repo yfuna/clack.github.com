@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>5. Component | Tutorial | Clack - Web application environment for Common Lisp</title>
+    <link href="../main.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+
+<h1><a href="/">Clack</a></h1>
+<p class="tagline">Revenge of Lisp in Web</p>
+
+<h2>Chapter 5: Component</h2>
+
+<p class="language">
+  <strong>English</strong> | <a href="./ja/05-component.html">日本語</a>
+</p>
+
+<div id="main">
+
+<p>I'm afraid but I told a lie in <a href="03-hello-world.html">Chapter 3</a>. <cite>--Clack application is just a function--.</cite> Honestly, <strong>it isn't always a function</strong>. See this example.</p>
+
+<pre>
+;; importing symbols for readability.
+(import '(clack:call clack:&lt;component&gt;))
+
+(defclass &lt;sample-app&gt; (&lt;component&gt;) ())
+
+(defmethod call ((this &lt;sample-app&gt;) env)
+  (declare (ignore env))
+  '(200
+    (:content-type "text/plain")
+    ("Hello, Clack!")))
+
+(clack:clackup
+  (make-instance '&lt;sample-app&gt;))
+</pre>
+
+<p>This is much similar to what we've ever seen before, isn't it? The content in a function moved into a method <code>call</code>, and passing an instance of <code>&lt;sample-app&gt;</code> to <code>clackup</code>.</p>
+
+<p>To summarize, <code>clackup</code> can take a function or an instance of a subclass of <code>&lt;component&gt;</code> as an application. All component must have <code>call</code>, it will be called for each requests.</p>
+
+<p>You may not understand how should we handle it yet. I will mention a real example later, so you just remember <code>clackup</code> can take a CLOS instance now.</p>
+
+</div>
+
+<div id="footer">
+  <div class="left"><a href="04-the-environment.html">&lt;&lt;4. The Environment</a></div>
+  <div class="center"><a href="./">Tutorial</a></div>
+  <div class="right"><!--<a href="">6. Middleware &gt;&gt;</a>--></div>
+</div>
+
+  </body>
+</html>
