@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>8. Clack.Middleware.Staticを使う | Tutorial | Clack - Web application environment for Common Lisp</title>
+    <link href="../../main.css" rel="stylesheet" type="text/css" />
+    <link href="./ja.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+
+<h1><a href="/">Clack</a></h1>
+<p class="tagline">Revenge of Lisp in Web</p>
+
+<h2>Chapter 8: Clack.Middleware.Staticを使う</h2>
+
+<p class="language">
+  <a href="../08-using-clack-middleware-static.html">English</a> | <strong>日本語</strong>
+</p>
+
+<div id="main">
+
+<p>Clackは以下の有用なミドルウェアを提供しています。</p>
+
+<ul>
+  <li>Clack.Middleware.Static - 静的ファイルの配信。</li>
+  <li>Clack.Middleware.Logger - アプリケーションやミドルウェア内のログ機構。</li>
+  <li>Clack.Middleware.Session - セッション管理。</li>
+  <li>Clack.Middleware.Conditional - ミドルウェア用の条件分岐。</li>
+  <li>Clack.Middleware.Auth.Basic - ベーシック認証。</li>
+</ul>
+
+<p>さらにClack.Middleware.CsrfというCSRF攻撃を防ぐミドルウェアもContribパッケージとして提供されています。</p>
+
+<p>この章ではClack.Middleware.Staticを例として紹介します。これは与えられたリクエストが指定のパターンにマッチしたときにファイルを配信するミドルウェアです。</p>
+
+<p>以下は使い方の例です。このラップされたアプリケーションはほとんどのリクエストに対して"Hello, Clack!"と返しますが、リクエストパスが"/public/*"にマッチするときのみ"/path/to/static-files/"の中のファイルを返します。</p>
+<pre>
+(import '(clack:wrap
+          clack.middleware.static:&lt;clack-middleware-static&gt;))
+
+(defun app (env)
+  '(200
+    (:content-type "text/plain")
+    ("Hello, Clack!")))
+
+(defvar mw
+    (make-instance '&lt;clack-middleware-static&gt;
+       :path "/public/"
+       :root #p"/path/to/static-files/"))
+
+(clack:clackup
+  (wrap mw #'app))
+</pre>
+
+<p>ミドルウェアは、ラップした新しいアプリケーションを返すメソッド<code>wrap</code>を持ちます。アプリケーションは複数のミドルウェアでラップすることもできます。それには<code>wrap</code>を以下のように複数回呼び出します。</p>
+
+<pre>
+(clack:clackup
+  (wrap mw3
+    (wrap mw2
+      (wrap mw1 #'app))))
+</pre>
+
+<p>しかしながら、これらの入れ子になった<code>wrap</code>は長ったらしいです。ClackはこれをDSL風の文法で書く方法を用意しています。それについては次の章で言及することにします。</p>
+
+</div>
+
+<div id="footer">
+  <div class="left"><a href="07-middleware.html">&lt;&lt;7. ミドルウェア</a></div>
+  <div class="center"><a href="./">Tutorial</a></div>
+  <div class="right"><!--<a href="09-clack-builder.html">9. Clack.Builder &gt;&gt;</a>--></div>
+</div>
+
+  </body>
+</html>

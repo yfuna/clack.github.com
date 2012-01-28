@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>8. Using Clack.Middleware.Static | Tutorial | Clack - Web application environment for Common Lisp</title>
+    <link href="../main.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+
+<h1><a href="/">Clack</a></h1>
+<p class="tagline">Revenge of Lisp in Web</p>
+
+<h2>Chapter 8: Using Clack.Middleware.Static</h2>
+
+<p class="language">
+  <strong>English</strong> | <a href="./ja/08-using-clack-middleware-static.html">日本語</a>
+</p>
+
+<div id="main">
+
+<p>Clack provides these useful middlewares.</p>
+
+<ul>
+  <li>Clack.Middleware.Static - Serves static files.</li>
+  <li>Clack.Middleware.Logger - Logging in Clack Application or Middleware.</li>
+  <li>Clack.Middleware.Session - Session management.</li>
+  <li>Clack.Middleware.Conditional - Conditional wrapper for Clack middleware.</li>
+  <li>Clack.Middleware.Auth.Basic - Basic Authentication Middleware.</li>
+</ul>
+
+<p>And also Clack.Middleware.Csrf which protects from CSRF attacks is provided as a Contrib package.</p>
+
+<p>In this chapter, I introduce Clack.Middleware.Static as a real example of a Clack Middleware. It serves static files if the given request matches with the specified pattern.</p>
+
+<p>Here's an example source code how to use it. This wrapped application returns "Hello, Clack!" for most of requests, but only when the request path matches <code>/public/*</code>, a file in <code>/path/to/static-files/*</code> will be served.</p>
+
+<pre>
+(import '(clack:wrap
+          clack.middleware.static:&lt;clack-middleware-static&gt;))
+
+(defun app (env)
+  '(200
+    (:content-type "text/plain")
+    ("Hello, Clack!")))
+
+(defvar mw
+    (make-instance '&lt;clack-middleware-static&gt;
+       :path "/public/"
+       :root #p"/path/to/static-files/"))
+
+(clack:clackup
+  (wrap mw #'app))
+</pre>
+
+<p>Middleware has a method <code>wrap</code> which for generating a wrapped application. Application can also be wrapped multiple Middlewares. For that, call <code>wrap</code> multiple times, like this.</p>
+
+<pre>
+(clack:clackup
+  (wrap mw3
+    (wrap mw2
+      (wrap mw1 #'app))))
+</pre>
+
+<p>However, these nested <code>wrap</code>s are tedious. Clack has the solution to write it with a DSL style syntax. I'll mention it in the next chapter.</p>
+
+</div>
+
+<div id="footer">
+  <div class="left"><a href="07-middleware.html">&lt;&lt;7. Middleware</a></div>
+  <div class="center"><a href="./">Tutorial</a></div>
+  <div class="right"><!--<a href="09-clack-builder.html">9. Clack.Builder &gt;&gt;</a>--></div>
+</div>
+
+  </body>
+</html>
