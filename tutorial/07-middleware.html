@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>7. Middleware | Tutorial | Clack - Web application environment for Common Lisp</title>
+    <link href="../main.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+
+<h1><a href="/">Clack</a></h1>
+<p class="tagline">Revenge of Lisp in Web</p>
+
+<h2>Chapter 7: Middleware</h2>
+
+<p class="language">
+  <strong>English</strong> | <a href="./ja/07-middleware.html">日本語</a>
+</p>
+
+<div id="main">
+
+<p>In this chapter, I introduce you new term -- <strong>Middleware</strong>. This is the most important concept to know why Clack is so powerful and extensible without losing simplicity.</p>
+
+<h3>What's Middleware?</h3>
+
+<p>Until now, an Application takes Request and just returns Response.</p>
+
+<img src="clack-middleware-1.png" />
+
+<p>I add Middlewares to this figure.</p>
+
+<img src="clack-middleware-2.png" />
+
+<p>Middlewares are surrounding an Application. It takes a Request before Application takes it and gets the Response which Application generates. By wrapping an Application, Middleware allows you to change the Application behaviour without rewriting the existing code.</p>
+
+<p>This is a mechanism full of possibility very much.</p>
+
+<h3>Clack.Middleware</h3>
+
+<p>Writing Middleware of Clack isn't so difficult for you who already know Component.</p>
+
+<pre>
+;; importing symbols for readability.
+(import '(clack:&lt;middleware&gt;
+          clack:call
+          clack:call-next))
+
+(defclass &lt;sample-mw&gt; (&lt;middleware&gt;) ())
+
+(defmethod call ((this &lt;sample-mw&gt;) env)
+  ;; preprocessing
+  (let ((response (call-next this env)))
+    ;; postprocessing
+    ))
+</pre>
+
+<p>Clack Middleware is a subclass of <code>&lt;middleware&gt;</code>. It also has a method <code>call</code>. It is really similar to <code>&lt;component&gt;</code>.</p>
+
+<p>Did you notice a function <code>call-next</code>? It means calling "the next" Component, Middleware or Application. Remember the second figure in this page. Middlewares wrap another Component. By calling <code>call-next</code>, Middlewares can call another wrapped Component.</p>
+
+<p>The beauty of Middleware is that it can be reused between Web applications. In the next chapter, I'll introduce you the real example of Middleware.</p>
+
+</div>
+
+<div id="footer">
+  <div class="left"><a href="06-using-clack-app-directory.html">&lt;&lt;6. Using Clack.App.Directory</a></div>
+  <div class="center"><a href="./">Tutorial</a></div>
+  <div class="right"><!--<a href="08-using-clack-middleware-static.html">8. Using Clack.Middleware.Static &gt;&gt;</a>--></div>
+</div>
+
+  </body>
+</html>

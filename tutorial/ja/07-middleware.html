@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>7. ミドルウェア | Tutorial | Clack - Web application environment for Common Lisp</title>
+    <link href="../../main.css" rel="stylesheet" type="text/css" />
+    <link href="./ja.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+
+<h1><a href="/">Clack</a></h1>
+<p class="tagline">Revenge of Lisp in Web</p>
+
+<h2>Chapter 7: ミドルウェア</h2>
+
+<p class="language">
+  <a href="../07-middleware.html">English</a> | <strong>日本語</strong>
+</p>
+
+<div id="main">
+
+<p>この章では、新しい用語を紹介します。<strong>ミドルウェア</strong>です。これは、Clackがシンプルさを失わずにいかに強力で拡張性があるかを知る上で、最も重要なコンセプトです。</p>
+
+<h3>ミドルウェアとは</h3>
+
+<p>今まで、アプリケーションはリクエストを受け取って、ただレスポンスを返すだけでした。</p>
+
+<img src="../clack-middleware-1.png" />
+
+<p>この図にミドルウェアを追加します。</p>
+
+<img src="../clack-middleware-2.png" />
+
+<p>ミドルウェアがアプリケーションを包み込んでいます。ミドルウェアはアプリケーションより先にリクエストをもらい、アプリケーションが返したレスポンスを受け取ることができます。アプリケーションをラップすることで、ミドルウェアは既存のコードに手を加えずに、アプリケーションの挙動を変更することができます。</p>
+
+<p>これはとても可能性に満ちた機構です。</p>
+
+<h3>Clack.Middleware</h3>
+
+<p>Clackでミドルウェアを書くのは、既にコンポーネントを知っていれば難しくありません。</p>
+
+<pre>
+;; 分かりやすさのためにシンボルをimportしておきます
+(import '(clack:&lt;middleware&gt;
+          clack:call
+          clack:call-next))
+
+(defclass &lt;sample-mw&gt; (&lt;middleware&gt;) ())
+
+(defmethod call ((this &lt;sample-mw&gt;) env)
+  ;; 前処理
+  (let ((response (call-next this env)))
+    ;; 後処理
+    ))
+</pre>
+
+<p>Clackミドルウェアは<code>&lt;middleware&gt;</code>のサブクラスです。そして、メソッド<code>call</code>があります。<code>&lt;component&gt;</code>とよく似ています。</p>
+
+<p><code>call-next</code>という関数に気づきましたか？ これは「次の」コンポーネント (ミドルウェアやアプリケーション) の呼び出しです。このページの2番目の図を思い出してください。ミドルウェアは他のコンポーネントを包むものです。<code>call-next</code>を呼ぶことで、ミドルウェアはラップしたコンポーネントを呼び出すことができます。</p>
+
+<p>ミドルウェアの美しさは、これがWebアプリケーションの間で再利用可能なことです。次の章では、このミドルウェアの実例を紹介します。</p>
+
+</div>
+
+<div id="footer">
+  <div class="left"><a href="06-using-clack-app-directory.html">&lt;&lt;6. Clack.App.Directoryを使う</a></div>
+  <div class="center"><a href="./">Tutorial</a></div>
+  <div class="right"><!--<a href="08-using-clack-middleware-static.html">8. Clack.Middleware.Staticを使う &gt;&gt;</a>--></div>
+</div>
+
+  </body>
+</html>
