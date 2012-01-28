@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>6. Using Clack.App.Directory | Tutorial | Clack - Web application environment for Common Lisp</title>
+    <link href="../main.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+
+<h1><a href="/">Clack</a></h1>
+<p class="tagline">Revenge of Lisp in Web</p>
+
+<h2>Chapter 6: Using Clack.App.Directory</h2>
+
+<p class="language">
+  <strong>English</strong> | <a href="./ja/06-using-clack-app-directory.html">日本語</a>
+</p>
+
+<div id="main">
+
+<p>Clack.App.Directory is a real example of a Clack application using <code>&lt;component&gt;</code>. This application serves a directory as a HTML page.</p>
+
+<p>Using this application is pretty easy.</p>
+
+<pre>
+;; mount /Users/nitro_idiot/ to http://localhost:5000/
+(clack:clackup
+ (make-instance 'clack.app.directory:&lt;clack-app-directory&gt;
+    :root #p"/Users/nitro_idiot/")
+ :port 5000)
+</pre>
+
+<p>Then, files in "/Users/nitro_idiot/" would appear at http://localhost:5000/.</p>
+
+<img src="./clack-app-directory.png" width="80%"/>
+
+<p>Can you see why this application uses <code>&lt;component&gt;</code> not just a function? It takes <code>:root</code> when making a new instance and the behavior will be changed the value. It is difficult when this application is implemented as a function.</p>
+
+<p>I know it can be a function returns a closure, but it would be complicated. And there is another advantage of using Classes. -- <strong>Inheritance</strong>. To tell the truth, <code>&lt;clack-app-directory&gt;</code> doesn't inherit <code>&lt;component&gt;</code> directly. It inehrits <code>&lt;clack-app-file&gt;</code> which is an application serves just a file (not directory). What <code>&lt;clack-app-directory&gt;</code> do is only enabling to see a list of files in a directory.</p>
+<p>If you are curious enough, core/app/directory.lisp and file.lisp which in the same directory will teach you how components is used.</p>
+
+</div>
+
+<div id="footer">
+  <div class="left"><a href="05-component.html">&lt;&lt;5. Component</a></div>
+  <div class="center"><a href="./">Tutorial</a></div>
+  <div class="right"><!--<a href="">7. Middleware &gt;&gt;</a>--></div>
+</div>
+
+  </body>
+</html>
