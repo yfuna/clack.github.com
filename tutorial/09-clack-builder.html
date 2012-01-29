@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>9. Clack.Builder | Tutorial | Clack - Web application environment for Common Lisp</title>
+    <link href="../main.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+
+<h1><a href="/">Clack</a></h1>
+<p class="tagline">Revenge of Lisp in Web</p>
+
+<h2>Chapter 9: Clack.Builder</h2>
+
+<p class="language">
+  <strong>English</strong> | <a href="./ja/09-clack-builder.html">日本語</a>
+</p>
+
+<div id="main">
+
+<p>In this chapter, I tell you about <a href="http://clacklisp.org/doc/clack.builder.html">Clack.Builder</a> which is the most general way to use Clack Middleware. It builds up with calling <code>wrap</code> of Middlewares sequentially and returns a function also as an Application.</p>
+
+<p>The syntax is easy to understand.</p>
+
+<pre>
+(builder
+  ;; Write Middleware classes here.
+  #'app)
+;=> Function (as an Application)
+</pre>
+
+<p>And, here's a real sample code.</p>
+
+<pre>
+(import 'clack.builder:builder)
+
+(defun app (env)
+  (declare (ignore env))
+  '(200
+    (:content-type "text/plain")
+    ("Hello, Clack!")))
+
+(clack:clackup
+  (builder
+    &lt;clack-middleware-session&gt;
+    (&lt;clack-middleware-static&gt;
+      :path "/public/"
+      :root #p"/path/to/static-files/")
+    #'app))
+</pre>
+
+<p><code>&lt;clack-middleware-session&gt;</code> is a middleware which enables a session management. By adding <code>:clack.session</code> to <code>env</code>, it allows to handle sessions as a hash table (See <a href="http://clacklisp.org/doc/clack.middleware.session.html">Clack.Middleware.Session</a>).
+
+<p>Notice that <code>builder</code> calls <code>wrap</code> from bottom to top. In this example, <code>#'app</code> would be wrapped by <code>&lt;clack-middleware-static&gt;</code> first, and be wrapped by <code>&lt;clack-middleware-session&gt;</code> next.</p>
+
+<p>Remember the figure in <a href="07-middleware.html">Chapter 7</a>.</p>
+
+<img src="clack-middleware-2.png" width="480" height="300" />
+
+<p>In case of this figure, the outer middleware is <code>&lt;clack-middleware-session&gt;</code> and the inner one is <code>&lt;clack-middleware-static&gt;</code>.</p>
+
+</div>
+
+<div id="footer">
+  <div class="left"><a href="08-using-clack-middleware-static.html">&lt;&lt;8. Using Clack.Middleware.Static</a></div>
+  <div class="center"><a href="./">Tutorial</a></div>
+  <div class="right"></div>
+</div>
+
+  </body>
+</html>
