@@ -21,16 +21,16 @@
 <p>Clack provides these useful middlewares.</p>
 
 <ul>
-  <li>Clack.Middleware.Static - Serves static files.</li>
-  <li>Clack.Middleware.Logger - Logging in Clack Application or Middleware.</li>
-  <li>Clack.Middleware.Session - Session management.</li>
-  <li>Clack.Middleware.Conditional - Conditional wrapper for Clack middleware.</li>
-  <li>Clack.Middleware.Auth.Basic - Basic Authentication Middleware.</li>
+  <li><a href="http://clacklisp.org/doc/clack.middleware.static.html">Clack.Middleware.Static</a> - Serves static files.</li>
+  <li><a href="http://clacklisp.org/doc/clack.middleware.logger.html">Clack.Middleware.Logger</a> - Logging in Clack Application or Middleware.</li>
+  <li><a href="http://clacklisp.org/doc/clack.middleware.session.html">Clack.Middleware.Session</a> - Session management.</li>
+  <li><a href="http://clacklisp.org/doc/clack.middleware.conditional.html">Clack.Middleware.Conditional</a> - Conditional wrapper for Clack middleware.</li>
+  <li><a href="http://clacklisp.org/doc/clack.middleware.auth.basic.html">Clack.Middleware.Auth.Basic</a> - Basic Authentication Middleware.</li>
 </ul>
 
 <p>And also Clack.Middleware.Csrf which protects from CSRF attacks is provided as a Contrib package.</p>
 
-<p>In this chapter, I introduce Clack.Middleware.Static as a real example of a Clack Middleware. It serves static files if the given request matches with the specified pattern.</p>
+<p>In this chapter, I introduce <a href="http://clacklisp.org/doc/clack.middleware.static.html">Clack.Middleware.Static</a> as a real example of a Clack Middleware. It serves static files if the given request matches with the specified pattern.</p>
 
 <p>Here's an example source code how to use it. This wrapped application returns "Hello, Clack!" for most of requests, but only when the request path matches <code>/public/*</code>, a file in <code>/path/to/static-files/*</code> will be served.</p>
 
@@ -39,6 +39,7 @@
           clack.middleware.static:&lt;clack-middleware-static&gt;))
 
 (defun app (env)
+  (declare (ignore env))
   '(200
     (:content-type "text/plain")
     ("Hello, Clack!")))

@@ -22,16 +22,16 @@
 <p>Clackは以下の有用なミドルウェアを提供しています。</p>
 
 <ul>
-  <li>Clack.Middleware.Static - 静的ファイルの配信。</li>
-  <li>Clack.Middleware.Logger - アプリケーションやミドルウェア内のログ機構。</li>
-  <li>Clack.Middleware.Session - セッション管理。</li>
-  <li>Clack.Middleware.Conditional - ミドルウェア用の条件分岐。</li>
-  <li>Clack.Middleware.Auth.Basic - ベーシック認証。</li>
+  <li><a href="http://clacklisp.org/doc/clack.middleware.static.html">Clack.Middleware.Static</a> - 静的ファイルの配信。</li>
+  <li><a href="http://clacklisp.org/doc/clack.middleware.logger.html">Clack.Middleware.Logger</a> - アプリケーションやミドルウェア内のログ機構。</li>
+  <li><a href="http://clacklisp.org/doc/clack.middleware.session.html">Clack.Middleware.Session</a> - セッション管理。</li>
+  <li><a href="http://clacklisp.org/doc/clack.middleware.conditional.html">Clack.Middleware.Conditional</a> - ミドルウェア用の条件分岐。</li>
+  <li><a href="http://clacklisp.org/doc/clack.middleware.auth.basic.html">Clack.Middleware.Auth.Basic</a> - ベーシック認証。</li>
 </ul>
 
 <p>さらにClack.Middleware.CsrfというCSRF攻撃を防ぐミドルウェアもContribパッケージとして提供されています。</p>
 
-<p>この章ではClack.Middleware.Staticを例として紹介します。これは与えられたリクエストが指定のパターンにマッチしたときにファイルを配信するミドルウェアです。</p>
+<p>この章では  <li><a href="http://clacklisp.org/doc/clack.middleware.static.html">Clack.Middleware.Static</a>を例として紹介します。これは与えられたリクエストが指定のパターンにマッチしたときにファイルを配信するミドルウェアです。</p>
 
 <p>以下は使い方の例です。このラップされたアプリケーションはほとんどのリクエストに対して"Hello, Clack!"と返しますが、リクエストパスが"/public/*"にマッチするときのみ"/path/to/static-files/"の中のファイルを返します。</p>
 <pre>
