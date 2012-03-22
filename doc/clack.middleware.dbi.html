@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Clack.Middleware.Dbi</title>
+  <link rel="stylesheet" href="./main.css" type="text/css" media="screen, tv, print" charset="UTF-8" />
+</head>
+<body>
+
+<div class="container">
+
+<h1>Clack.Middleware.Dbi - Middleware for CL-DBI connection management. </h1><h2>SYNOPSIS</h2><pre><code>(builder  
+ (&lt;clack-middleware-dbi&gt;  
+  :driver-name :mysql  
+  :database-name "dbname"  
+  :username "fukamachi"  
+  :password "password")  
+ app) </code></pre><h2>DESCRIPTION</h2><p>This is a Clack Middleware component for managing CL-DBI's connections. </p><h2>Slots</h2><ul><li>driver-name (Required, Keyword)</li><li>database-name (Required, String)</li></ul><p>Other parameters (<code>:username</code>, <code>:password</code> and so on) will be passed to <code>dbi:connect</code> as keyword parameters. </p><h2>AUTHOR</h2><ul><li>Eitarow Fukamachi (e.arrows@gmail.com)</li></ul><h2>SEE ALSO</h2><ul><li><a href="https://github.com/fukamachi/cl-dbi">CL-DBI</a></li></ul>
+
+<h2>EXTERNAL SYMBOLS</h2>
+
+<div class="symbol">
+  <ul>
+
+<li>
+  Variable: <strong>*db*</strong>
+
+
+</li>
+
+<li>
+  Class: <strong>&lt;clack-middleware-dbi&gt;</strong> inherits (&lt;middleware&gt;)
+
+<dl>
+
+<dt><strong>driver-name</strong> Accessor: driver-name</small></dt>
+
+
+<dt><strong>args</strong> Accessor: args</small></dt>
+
+
+</dl>
+
+</li>
+
+<li>
+  Method: <strong>call</strong>
+[(this &lt;clack-middleware-dbi&gt;) env]
+
+
+</li>
+
+  </ul>
+</div>
+
+</div>
+
+</body>
+</html>

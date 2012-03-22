@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Clack.Handler.Fcgi</title>
+  <link rel="stylesheet" href="./main.css" type="text/css" media="screen, tv, print" charset="UTF-8" />
+</head>
+<body>
+
+<div class="container">
+
+<h1>Clack.Handler.Fcgi - Clack handler for FastCGI. </h1><h2>SYNOPSIS</h2><pre><code>;; Start server  
+(run (lambda (env)  
+       '(200 nil ("ok")))  
+     :port 9000)  
+ 
+;; Using clackup  
+(clackup (lambda (env)  
+           '(200 nil ("ok")))  
+         :server :fcgi  
+         :port 9000) </code></pre><h2>DESCRIPTION</h2><p>Clack.Handler.Fcgi is a Clack handler to run any Clack application as a FastCGI application. This handler depends on the library "cl-fastcgi", so it only works on SBCL, CMUCL, GNU CLISP, Clozure CL, LispWorks and ECL. </p><p>Here's an example using Nginx. </p><pre><code># nginx.conf  
+worker_processes  1;  
+ 
+events {  
+    worker_connections  1024;  
+}  
+ 
+http {  
+    server {  
+        listen       8080;  
+        server_name  localhost;  
+        location / {  
+               include_fastcgi_params;  
+               fastcgi_pass   127.0.0.1:9000;  
+        }  
+    }  
+} </code></pre><p>This configuration to opens port 8080 to web browsers, and listens for the Lisp process on port 9000. </p><p>Run Clack application by <code>clackup</code>. </p><pre><code>(clack:clackup (lambda (env) '(200 nil ("Hello, FastCGI!")))  
+  :server :fcgi  
+  :port 9000) </code></pre><p>Now, you can access <a href="http://localhost:8080/">http://localhost:8080/</a> and Clack should show you "Hello, FastCGI!". </p><h2>AUTHOR</h2><p>Eitarow Fukamachi (e.arrows@gmail.com) </p>
+
+<h2>EXTERNAL SYMBOLS</h2>
+
+<div class="symbol">
+  <ul>
+
+<li>
+  Function: <strong>run</strong>
+[app &amp;key (debug t) (port 9000)]
+
+<pre>
+  Start FastCGI server.
+</pre>
+
+
+</li>
+
+<li>
+  Function: <strong>stop</strong>
+[acceptor]
+
+
+</li>
+
+  </ul>
+</div>
+
+</div>
+
+</body>
+</html>
