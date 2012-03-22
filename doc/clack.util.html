@@ -22,7 +22,7 @@
 [name &amp;rest body]
 
 <pre>
-  Similar to `defpackage', but the difference is ensure to be in :CL-USER before and to be in the new package after.
+  Similar to `defpackage`, but the difference is ensure to be in :CL-USER before and to be in the new package after.
 This may be useful for 'one-package-per-one-file' style.
 </pre>
 
@@ -34,26 +34,8 @@ This may be useful for 'one-package-per-one-file' style.
 [place key]
 
 <pre>
-  Similar to `getf' but allows many types for the `key', String, Keyword or Symbol.
+  Similar to `getf` but allows many types for the `key`, String, Keyword or Symbol.
 </pre>
-
-
-</li>
-
-<li>
-  Function: <strong>getf-all</strong>
-[plist key]
-
-<pre>
-  This is a version of `getf' enabled to manage multiple keys. If the `plist' has two or more pairs that they have given `key' as a key, returns the values of each pairs as one list.
-</pre>
-
-
-</li>
-
-<li>
-  Function: <strong>(setf getf-all)</strong>
-[val plist key]
 
 
 </li>
@@ -63,7 +45,7 @@ This may be useful for 'one-package-per-one-file' style.
 [place key]
 
 <pre>
-  Similar to `remf` but allows many types for the `key', String,
+  Similar to `remf` but allows many types for the `key`, String,
 Keyword or Symbol.
 </pre>
 
@@ -140,6 +122,23 @@ Example:
 <li>
   Function: <strong>html-encode</strong>
 [str]
+
+
+</li>
+
+<li>
+  Variable: <strong>*tmp-directory*</strong>
+
+
+</li>
+
+<li>
+  Function: <strong>make-tmp-file-name</strong>
+[&amp;optional (prefix clack)]
+
+<pre>
+  Generates a unique name for a temporary file.
+</pre>
 
 
 </li>

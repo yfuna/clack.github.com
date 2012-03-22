@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Clack.Util.Rfc2388</title>
+  <link rel="stylesheet" href="./main.css" type="text/css" media="screen, tv, print" charset="UTF-8" />
+</head>
+<body>
+
+<div class="container">
+
+<h1>Clack.Util.Rfc2388 - Ported from RFC2388. </h1><h2>DESCRIPTION</h2><p><code>rfc2388:parse-mime</code> requires Hunchentoot package to parse multipart/form-data. This package provides a method <code>parse-mime</code> only for Clack. </p><h2>AUTHOR</h2><ul><li>Eitarow Fukamachi (e.arrows@gmail.com)</li></ul>
+
+<h2>EXTERNAL SYMBOLS</h2>
+
+<div class="symbol">
+  <ul>
+
+<li>
+  Generic: <strong>parse-mime</strong>
+[source boundary &amp;key write-content-to-file]
+
+<pre>
+  Parses MIME entities, returning them as a list.  Each element in the
+    list is of form: (body headers), where BODY is the contents of MIME
+    part, and HEADERS are all headers for that part.  BOUNDARY is a string
+    used to separate MIME entities.
+</pre>
+
+
+</li>
+
+<li>
+  Method: <strong>parse-mime</strong>
+[(input string) separator &amp;key (write-content-to-file t)]
+
+
+</li>
+
+<li>
+  Method: <strong>parse-mime</strong>
+[(input stream) boundary &amp;key (write-content-to-file t)]
+
+
+</li>
+
+  </ul>
+</div>
+
+</div>
+
+</body>
+</html>

@@ -10,7 +10,7 @@
 
 <div class="container">
 
-<h1>Clack.Util.Stream - Useul streams </h1><h2>DESCRIPTION</h2><h2>AUTHOR</h2><ul><li>Tomohiro Matsuyama (tomo@cx4a.org)</li></ul>
+<h1>Clack.Util.Stream - Useul streams </h1><h2>DESCRIPTION</h2><h2>AUTHOR</h2><ul><li>Tomohiro Matsuyama (tomo@cx4a.org)</li></ul><h2>CONTRIBUTORS</h2><ul><li>Eitarow Fukamachi (e.arrows@gmail.com)</li></ul>
 
 <h2>EXTERNAL SYMBOLS</h2>
 
@@ -34,87 +34,6 @@
 <li>
   Function: <strong>ensure-character-input-stream</strong>
 [stream]
-
-
-</li>
-
-<li>
-  Class: <strong>replay-input-stream</strong> inherits (trivial-gray-stream-mixin fundamental-binary-input-stream)
-
-<dl>
-
-<dt><strong>stream</strong> Reader: replay-stream-stream</small></dt>
-
-
-<dt><strong>buffer</strong> Reader: replay-stream-buffer</small></dt>
-
-
-<dt><strong>position</strong> Accessor: replay-stream-position</small></dt>
-
-
-</dl>
-
-</li>
-
-<li>
-  Method: <strong>replay-stream-fetch</strong>
-[(this replay-input-stream)]
-
-
-</li>
-
-<li>
-  Method: <strong>stream-element-type</strong>
-[(this replay-input-stream)]
-
-
-</li>
-
-<li>
-  Method: <strong>stream-read-byte</strong>
-[(this replay-input-stream)]
-
-
-</li>
-
-<li>
-  Method: <strong>stream-listen</strong>
-[(this replay-input-stream)]
-
-
-</li>
-
-<li>
-  Method: <strong>stream-read-sequence</strong>
-[(this replay-input-stream) sequence start end &amp;key]
-
-
-</li>
-
-<li>
-  Method: <strong>stream-file-position</strong>
-[(this replay-input-stream)]
-
-
-</li>
-
-<li>
-  Method: <strong>(setf stream-file-position)</strong>
-[position-spec (this replay-input-stream)]
-
-
-</li>
-
-<li>
-  Function: <strong>make-replay-buffer</strong>
-[]
-
-
-</li>
-
-<li>
-  Function: <strong>make-replay-input-stream</strong>
-[stream &amp;key (buffer (make-replay-buffer))]
 
 
 </li>

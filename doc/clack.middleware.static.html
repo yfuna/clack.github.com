@@ -15,12 +15,12 @@
    (&lt;clack-middleware-static&gt;  
     :path "/public/"  
     :root #p"/static-files/")  
-   app)) </code></pre><h2>DESCRIPTION</h2><p>This is a Clack Middleware component for serving static files. </p><h2>Slots</h2><ul><li>path (Required, String or Function)</li></ul><p><code>path</code>  specifies the prefix of URL or a callback to match with requests to serve static files for. </p><p>Notice. Don't forget to add slush "/" to the end. </p><ul><li>root (Optional, Pathname)</li></ul><p><code>root</code>  specifies the root directory to serve static files from. </p><h2>EXAMPLE</h2><p>Following example code would serve <em>/public/foo.jpg</em> from <em>/static-files/foo.jpg</em>. </p><pre><code>(run  
+   app)) </code></pre><h2>DESCRIPTION</h2><p>This is a Clack Middleware component for serving static files. </p><h2>Slots</h2><ul><li>path (Required, String or Function)</li></ul><p><code>path</code>  specifies the prefix of URL or a callback to match with requests to serve static files for. </p><p>Notice. Don't forget to add slush "/" to the end. </p><ul><li>root (Optional, Pathname)</li></ul><p><code>root</code>  specifies the root directory to serve static files from. </p><h2>EXAMPLE</h2><p>The following example code would serve <em>/public/foo.jpg</em> from <em>/static-files/foo.jpg</em>. </p><pre><code>(run  
   (builder  
    (&lt;clack-middleware-static&gt;  
     :path "/public/"  
     :root #p"/static-files/")  
-   app)) </code></pre><p>You can set any function that returns mapped filename, for <code> :path</code> . Above example is able to be rewritten as following code. </p><pre><code>(run  
+   app)) </code></pre><p>You can set any function that returns a mapped filename as <code> :path</code> . The above example can be rewritten as following code. </p><pre><code>(run  
   (builder  
    (&lt;clack-middleware-static&gt;  
     :path (lambda (path)  

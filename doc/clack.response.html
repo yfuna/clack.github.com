@@ -86,7 +86,7 @@ Create a <response> instance.
 [(res &lt;response&gt;) &amp;optional name]
 
 <pre>
-  Get whole of headers or header value of given name.
+  Get all included headers, or the header value that corresponds to `name`.
 
 Example:
   (headers res)
@@ -184,7 +184,7 @@ Example:
 [(res &lt;response&gt;)]
 
 <pre>
-  Return a Clack response list containing three values, status, headers and body.
+  Return a Clack response list containing three values: status, headers, and body.
 </pre>
 
 

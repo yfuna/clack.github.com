@@ -19,7 +19,7 @@
             `(200  
               (:content-type "text/plain")  
               (,(format nil "Hello, you've been here for ~Ath times!"  
-                        (incf (gethash :counter (getf env :clack.session))))))))) </code></pre><h2>DESCRIPTION</h2><p>Clack.Middleware.Session provides you session interface. By default this will use cookies to keep session state and store data in memory. </p><p>You can change this behavior to inherit <code>&lt;clack-session-state&gt;' and </code><clack-session-store>'. </p><p>Note the `:clack.session' is a hash table, not a plist, because plist cannot keep state between functions. </p><h2>AUTHOR</h2><p>Eitarow Fukamachi (e.arrows@gmail.com) </p><h2>SEE ALSO</h2><ul><li>Clack.Session.State</li><li>Clack.Session.Store</li></ul>
+                        (incf (gethash :counter (getf env :clack.session))))))))) </code></pre><h2>DESCRIPTION</h2><p>Clack.Middleware.Session provides a session interface. By default this will use cookies to keep session state and store data in memory. </p><p>You can change this behavior by inheriting <code>&lt;clack-session-state&gt;</code> and <code>&lt;clack-session-store&gt;</code>. </p><p>Note the <code>:clack.session</code> is a hash table, not a plist, because plists cannot keep state between functions. </p><h2>AUTHOR</h2><p>Eitarow Fukamachi (e.arrows@gmail.com) </p><h2>SEE ALSO</h2><ul><li>Clack.Session.State</li><li>Clack.Session.Store</li></ul>
 
 <h2>EXTERNAL SYMBOLS</h2>
 

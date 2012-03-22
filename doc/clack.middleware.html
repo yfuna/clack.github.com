@@ -18,10 +18,10 @@
  
 (defclass &lt;clack-middleware-example&gt; (&lt;middleware&gt;) ())  
 (defmethod call ((this &lt;clack-middleware-example&gt;) env)  
-  ;; pre-processing `env'  
+  ;; pre-processing `env`  
   (let ((res (call-next this env)))  
-    ;; post-processing `res'  
-    res)) </code></pre><h2>DESCRIPTION</h2><p>Clack.Middleware is the base class to write Clack Middleware. </p><p>All you have to do is to inherit from <code>&lt;middleware&gt;' and then implement the callback </code>call' method to do the actual work. </p><p>Middleware is similar to ':around' method of CLOS. You can delegate some processes to Application (or next Middleware) to call `call-next'. </p><h2>AUTHOR</h2><p>  Author: Eitarow Fukamachi (e.arrows@gmail.com) </p><h2>SEE ALSO</h2><ul><li>Clack.Component</li></ul>
+    ;; post-processing `res`  
+    res)) </code></pre><h2>DESCRIPTION</h2><p>Clack.Middleware is the base class to write Clack Middleware. </p><p>All you have to do is to inherit from <code>&lt;middleware&gt;</code> and then implement the callback <code>call</code> method to do the actual work. </p><p>Middleware is similar to ':around' method of CLOS. You can delegate some processes to Application (or next Middleware) to call <code>call-next</code>. </p><h2>AUTHOR</h2><p>  Author: Eitarow Fukamachi (e.arrows@gmail.com) </p><h2>SEE ALSO</h2><ul><li>Clack.Component</li></ul>
 
 <h2>EXTERNAL SYMBOLS</h2>
 
@@ -60,8 +60,8 @@
 [(this &lt;middleware&gt;) app-or-middleware]
 
 <pre>
-  Compose this and given application or middleware instance into one function.
-The function takes request plist.
+  Compose `this` and the given application or middleware instance into one function.
+This function takes a request plist.
 </pre>
 
 

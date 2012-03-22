@@ -19,7 +19,7 @@
 (defclass &lt;clack-app-example&gt; (&lt;component&gt;) ())  
 (defmethod call ((this &lt;clack-app-example&gt;) env)  
   (declare (ignore this env))  
-  `(200 (:content-type "text/plain") ("Hello, World!"))) </code></pre><h2>DESCRIPTION</h2><p>Clack.Component is the base class shared between Clack.Middleware and Clack Application. </p><p>You must implement `clack.component:call' as a method which is called when HTTP request coming and returns a response. </p><h2>AUTHOR</h2><ul><li>Eitarow Fukamachi (e.arrows@gmail.com)</li></ul><h2>SEE ALSO</h2><ul><li>Clack.Middleware</li></ul>
+  `(200 (:content-type "text/plain") ("Hello, World!"))) </code></pre><h2>DESCRIPTION</h2><p>Clack.Component is the base class shared between Clack.Middleware and Clack Application. </p><p>You must implement <code>clack.component:call</code> as a method which is called when an HTTP request comes in and returns a response. </p><h2>AUTHOR</h2><ul><li>Eitarow Fukamachi (e.arrows@gmail.com)</li></ul><h2>SEE ALSO</h2><ul><li>Clack.Middleware</li></ul>
 
 <h2>EXTERNAL SYMBOLS</h2>
 
@@ -44,7 +44,7 @@
 [comp env]
 
 <pre>
-  Invoke component. Designed to override in subclasses.
+  Invoke component. Designed to be overriden in subclasses.
 </pre>
 
 

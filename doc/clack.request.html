@@ -30,6 +30,9 @@
 
 <dl>
 
+<dt><strong>env</strong> Reader: env</small></dt><dd>Raw env</dd>
+
+
 <dt><strong>request-method</strong> Reader: request-method</small></dt><dd>The HTTP request method.
 This must be one of :GET, :HEAD, :OPTIONS, :PUT, :POST, or :DELETE.</dd>
 
@@ -39,7 +42,7 @@ This may be an empty string if the application corresponds to the server's root 
 
 
 <dt><strong>path-info</strong> Reader: path-info</small></dt><dd>The remainder of the request URL's path.
-This may be an empty string if the request URL targets the application root and does no have a trailing slash.</dd>
+This may be an empty string if the request URL targets the application root and does not have a trailing slash.</dd>
 
 
 <dt><strong>server-name</strong> Reader: server-name</small></dt><dd>The resolved server name, or the server IP address.</dd>
@@ -94,16 +97,13 @@ Typically this will be something like :HTTP/1.0 or :HTTP/1.1.</dd>
 <dt><strong>query-parameters</strong></small></dt>
 
 
-<dt><strong>uploads</strong> Accessor: uploads</small></dt>
-
-
 </dl>
 
 </li>
 
 <li>
   Method: <strong>initialize-instance</strong>
-[(this &lt;request&gt;) &amp;key]
+[(this &lt;request&gt;) &amp;rest env]
 
 
 </li>
@@ -147,7 +147,7 @@ on an original raw-body.
 [(req &lt;request&gt;) &amp;optional name]
 
 <pre>
-  Returns cookies as a plist. If optional `name' is specified, returns the value corresponds to it.
+  Returns cookies as a plist. If optional `name` is specified, returns the value that corresponds to it.
 </pre>
 
 
@@ -158,7 +158,7 @@ on an original raw-body.
 [(req &lt;request&gt;) &amp;optional name]
 
 <pre>
-  Return POST parameters as a plist. If optional `name' is specified, returns the value corresponds to it.
+  Return POST parameters as a plist. If optional `name` is specified, returns the value that corresponds to it.
 </pre>
 
 
@@ -169,7 +169,7 @@ on an original raw-body.
 [(req &lt;request&gt;) &amp;optional name]
 
 <pre>
-  Returns GET parameters as a plist. If optional `name' is specified, returns the value corresponds to it.
+  Returns GET parameters as a plist. If optional `name` is specified, returns the value that corresponds to it.
 </pre>
 
 
@@ -180,7 +180,7 @@ on an original raw-body.
 [(req &lt;request&gt;) &amp;optional name]
 
 <pre>
-  Returns request parameters containing (merged) GET and POST parameters. If optional `name' is specified, returns the value corresponds to it.
+  Returns request parameters containing (merged) GET and POST parameters. If optional `name` is specified, returns the value that corresponds to it.
 </pre>
 
 
