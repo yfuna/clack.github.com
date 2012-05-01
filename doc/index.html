@@ -28,7 +28,7 @@
 (defvar *handler*  
     (clackup  
       #&#039;(lambda (env)  
-          &#039;(200 (:content-type &quot;text/plain&quot;) (&quot;Hello, Clack!&quot;))))) </code></pre><p>Now access <a href="http://localhost:5000/">http://localhost:5000/</a> and Clack may show you &quot;Hello, Clack!&quot;. </p><p>To stop the server, call <code>(clack:stop *handler*)</code>. </p>
+          &#039;(200 (:content-type &quot;text/plain&quot;) (&quot;Hello, Clack!&quot;))))) </code></pre><p>Now access <a href="http://localhost:5000/">http://localhost:5000/</a> and Clack should show you &quot;Hello, Clack!&quot;. </p><p>To stop the server, execute <code>(clack:stop *handler*)</code>. </p>
   
     <a name="Installation"></a>
     <h2>Installation</h2>
@@ -48,11 +48,11 @@
   
     <a name="Bundle+Middleware"></a>
     <h3>Bundle Middleware</h3>
-    <ul><li>Clack.Middleware.Static - Serves static files.</li><li>Clack.Middleware.Logger - Logging in Clack Application or Middleware.</li><li>Clack.Middleware.Session - Session management.</li></ul>
+    <ul><li><a href="http://clacklisp.org/doc/clack.middleware.static.html">Clack.Middleware.Static</a> - Serves static files.</li><li><a href="http://clacklisp.org/doc/clack.middleware.logger.html">Clack.Middleware.Logger</a> - Logging in Clack Application or Middleware.</li><li><a href="http://clacklisp.org/doc/clack.middleware.session.html">Clack.Middleware.Session</a> - Session management.</li></ul>
   
     <a name="Contrib+Middleware"></a>
     <h3>Contrib Middleware</h3>
-    <ul><li>Clack.Middleware.Dbi - Middleware for CL-DBI connection management.</li><li>Clack.Middleware.Csrf - Provides easy way to protect from CSRF.</li><li>Clack.Middleware.Auth.Basic - Basic Authentication Middleware.</li><li>Clack.Middleware.Clsql - For CLSQL connection management.</li><li>Clack.Middleware.Rucksack - For wrapping Rucksack transaction.</li><li>Clack.Middleware.OAuth - Authorization by OAuth.</li></ul>
+    <ul><li><a href="http://clacklisp.org/doc/clack.middleware.dbi.html">Clack.Middleware.Dbi</a> - Middleware for CL-DBI connection management.</li><li><a href="http://clacklisp.org/doc/clack.middleware.csrf.html">Clack.Middleware.Csrf</a> - Provides easy way to protect from CSRF.</li><li><a href="http://clacklisp.org/doc/clack.middleware.auth.basic.html">Clack.Middleware.Auth.Basic</a> - Basic Authentication Middleware.</li><li><a href="http://clacklisp.org/doc/clack.middleware.clsql.html">Clack.Middleware.Clsql</a> - For CLSQL connection management.</li><li><a href="http://clacklisp.org/doc/clack.middleware.rucksack.html">Clack.Middleware.Rucksack</a> - For wrapping Rucksack transaction.</li><li><a href="http://clacklisp.org/doc/clack.middleware.oauth.html">Clack.Middleware.OAuth</a> - Authorization by OAuth.</li></ul>
   
     <a name="Author"></a>
     <h2>Author</h2>
@@ -199,6 +199,12 @@
   <li>
     <a href="clack.middleware.session.html">
       Clack.Middleware.Session
+    </a>
+  </li>
+
+  <li>
+    <a href="clack.middleware.stdout.html">
+      Clack.Middleware.Stdout
     </a>
   </li>
 

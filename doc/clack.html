@@ -14,7 +14,12 @@
            (declare (ignore env))  
            '(200 nil ("Hello, Clack!")))  
          :port 5000  
-         :debug t) </code></pre><h2>DESCRIPTION</h2><p>Contrary to your expectations, this package is not so significant. Just exporting symbols imported from Clack.Component and Clack.Middleware. </p><p>This package is mostly just here to avoid confusion, especially for beginners. Most peaple expect there to be a package that has the same as asdf:system. </p><p>Worthy of special mention is <code>clackup</code>. It provides an easy way to run Clack Applications. </p><h2>AUTHOR</h2><ul><li>Eitarow Fukamachi (e.arrows@gmail.com)</li></ul><h2>SEE ALSO</h2><ul><li>Clack.Component</li><li>Clack.Middleware</li></ul>
+         :debug t)  
+ 
+(clackup #p"app.lisp"  
+         :server :fcgi  
+         :port 8080  
+         :debug nil) </code></pre><h2>DESCRIPTION</h2><p>Contrary to your expectations, this package is not so significant. Just exporting symbols imported from Clack.Component and Clack.Middleware. </p><p>This package is mostly just here to avoid confusion, especially for beginners. Most peaple expect there to be a package that has the same as asdf:system. </p><p>Worthy of special mention is <code>clackup</code>. It provides an easy way to run Clack Applications. </p><h2>AUTHOR</h2><ul><li>Eitarow Fukamachi (e.arrows@gmail.com)</li></ul><h2>SEE ALSO</h2><ul><li>Clack.Component</li><li>Clack.Middleware</li></ul>
 
 <h2>EXTERNAL SYMBOLS</h2>
 
@@ -22,8 +27,14 @@
   <ul>
 
 <li>
+  Variable: <strong>*clack-output*</strong>
+
+
+</li>
+
+<li>
   Function: <strong>clackup</strong>
-[app &amp;key (server :hunchentoot) (port 5000) (debug t)]
+[app &amp;rest args &amp;key (server :hunchentoot) (port 5000) (debug t)]
 
 <pre>
   
@@ -36,6 +47,11 @@ Example:
              '(200 nil ("ok")))
            :port 5000
            :debug t)
+
+  (clackup #p"app.lisp"
+           :server :fcgi
+           :port 8080
+           :debug nil)
 
 </pre>
 
