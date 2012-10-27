@@ -7,6 +7,15 @@ body {
   font-family: "Optima", "Nu Sans", Baskerville, "Times New Roman", "Arial", sans-serif;
 }
 
+.header .logo,
+.header .github-buttons {
+  float: left;
+}
+
+.header .github-buttons {
+  margin: 50px 0 0 20px;
+}
+
 h1 {
   font-size: 48pt;
   margin-top: 40px;
