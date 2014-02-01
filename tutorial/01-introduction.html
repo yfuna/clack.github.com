@@ -18,49 +18,49 @@
 
 <div id="main">
 
-<p>Clack is a web application environment for Common Lisp, inspired by Python's WSGI, Ruby's Rack and Perl's Plack. By abstracting HTTP into a simple API, Clack allows your web applications to be portable and be reusable.</p>
+<p>Clack is a web application environment on Common Lisp, inspired by Python's WSGI, Ruby's Rack, and Perl's Plack. By abstracting HTTP into simple APIs, Clack enables your web applications to be portable and be reusable.</p>
 
-<p>If you are familiar with Web development, you may know why these things so important -- because Web applications are in beta forever.</p>
+<p>If you are familiar with web application development, you may notice why these types of software are so important: web applications are in beta forever.</p>
 
-<h3>Enlargement of Systems</h3>
+<h3>Enlargement of systems</h3>
 
-<p>It means we have to improve applications day by day. In the process of improvement, it isn't rare that functions that you never imagined at the time of the design are added. Web application will be enlarged.</p>
+<p>It means we have to improve our applications on daily basis. In the process of the improvement, it is common that you have to add features which are completely out of your consideration at the time of the design process. Web applications will be enlarged.</p>
 
-<p>Then, it is hard to change partly in such a case when the system is built like a big rock from bottom to top. Therefore each components of your application must be lazy-coupling things that dependencies are clear.</p>
+<p>In this type of situation, it is really hard or even imposibble for you to add new functionalities into your application if you built it as one big rock which has no layer or modular architecture. This is why components of your application should be loosely coupled so as to make their dependencies as clear as possible.</p>
 
-<h3>Technologies changes fast</h3>
+<h3>Technologies change fast</h3>
 
-<p>Besides that, there is another matter. -- Web world goes fast. Probably most of technologies will be changed within a few years.</p>
+<p>Besides that, there is another issue. The Web evolves fast. Probably most technologies will be changed or replaced within a few years.</p>
 
-<p>It's not avoidable even if you write programs how carefully. Applications are getting older little by little. Your web server may be old-fashioned a few years later. Your web framework may be not maintained in the future. Same as libraries you used. It is difficult that you change your code along the times if your application depended on them deeply.</p>
+<p>This fact makes the problem unavoidable regardless of how you wrote "your" programs carefully to avoid it. All software gets old day by day. Your web server software will have become old-fashioned just a few years later. Your web framework may be not maintained anymore in that future. Same applies to the libraries you are using in your application. It is difficult for you to change your source code along the times if your application is tightly coupled to other software.</p>
 
 <h3>What Clack solves</h3>
 
-<p>Clack was developed to solve these problems. Clack works like "glue" of a web application. Honestly, Clack isn't a web application framework. Clack is a collection of modular components. Each components are lazy-coupling and it is easy to replace it partly.</p>
+<p>Clack was developed to solve this problem. Clack works like "glue" to compose a web application. Actually, Clack is not a web application framework but a collection of modular components, which are so loosely coupled that you can easily replace them independently.</p>
 
-<p>And, Clack abstracts HTTP and a Web server. You don't need to be aware of what the backend is. As web applications built on Clack doesn't depend on which backend is, you can run the same code on a different Web server only by rewriting your application just a little.</p>
+<p>Clack is an abstraction layer for both HTTP and web servers. This allows you to ignore the difference of backends of your system. As web applications built on Clack are independet form your current choice of backends, you can run the same code on different web servers just by rewriting your application a little bit.</p>
 
-<p>I cannot talk about all of Clack in this chapter, but I leave some information that you can determine whether we are worth trust for a skeptical person.</p>
+<p>I shouldn't explain all about Clack in this one chapter, but rather leave additional information that helps you check how trustworthy Clack is: at least if it's worth sparing your time to learn the detail.</p>
 
 <h3>Clack seems stable</h3>
 
-<p>All the functions of the core of Clack are already implemented in the first official release in June, 2011. Since then, no serious bugs have been found and no changes without backward compatibility have done.</p>
+<p>All features of the core of Clack were already implemented in the first official release in June, 2011. Since then, no serious bug has been found and anything that is harmfull for backward compatibility has not been introduced.</p>
 
 <h3>Continuous improvements</h3>
 
-<p>We release Clack <a href="https://github.com/fukamachi/clack/tags">every month</a>. There are many kind of changes in them, but, I really wanna say is, continuous improvement has been done. In the process, functions of Clack has been strengthened steadily, and even if a fatal bug was found in future by any chance, we can expect it is fixed by next month.</p>
+<p>We release Clack <a href="https://github.com/fukamachi/clack/tags">every month</a>. There were various kind of changes in them, but, what I really want to say is, Clack has been and will be improved continuously through this process: the features of Clack has been strengthened steadily, and even in case of we find a fatal bug in the future, you can expect it will be fixed by next month.</p>
 
 <h3>Well-documented</h3>
 
-<p>Most of functions, variables and macros in Clack have docstrings. Even packages. Because we think all elements in source files need a documentation string except it is really self-explanatory.</p>
+<p>Most functions, variables and macros in Clack have docstrings. Even packages have. Because we think all entities in sources need documentation for them except the case that they are really self-explanatory.</p>
 
-<p>We also provides them as HTML pages at <a href="http://clacklisp.org/doc/">http://clacklisp.org/doc/</a>.</p>
+<p>We also provides them in HTML format at <a href="http://clacklisp.org/doc/">http://clacklisp.org/doc/</a>.</p>
 
 <h3>Well-tested</h3>
 
-<p>The reason which only a few bugs were found so far is many unit tests. It has 173 tests now. The test coverage is kept more than 70% (I wanna improve it more, though).</p>
+<p>The reason why only a few bugs were found so far in Clack is its plentiness of unit tests. It has 173 tests currently. The test coverage has been kept more than 70% (I want to improve it more, though).</p>
 
-<p>Of course, all releases had passed those all tests, not only on 1 CL implementation but 3 -- Clozure CL, SBCL and CLISP. You can check the current status at <a href="http://ci.clacklisp.org/">http://ci.clacklisp.org/</a>.</p>
+<p>Of course, all releases have passed the test suite on three CL implementations: Clozure CL, SBCL, and CLISP. You can check the current status at <a href="http://ci.clacklisp.org/">http://ci.clacklisp.org/</a>.</p>
 
 </div>
 
