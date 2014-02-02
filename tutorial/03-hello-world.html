@@ -32,7 +32,7 @@
 
 <p>You see a Clack application is just a function which takes one argument and returns a list of three elements, which express a status code, header fields, and body data, I mean, an HTTP response collectively.</p>
 
-<p>Let's change this application a little bit to explain the argument <code>env</code>.</p>
+<p>Let's modify this application a little bit to explain the argument <code>env</code>.</p>
 
 <pre>
 (defun app (env)
@@ -46,7 +46,7 @@
 
 <p>This application returns web client's remote addresses. It should be 127.0.0.1 if you are accessing a server running on localhost. The <code>env</code> is a property list containing various information about each HTTP connection associated with an HTTP request.</p>
 
-<p>You can designate a file as an HTTP body data. Here's a little bit complicated example using this feature.</p>
+<p>You can designate a file as HTTP body data. Here's a little bit complicated example using this feature.</p>
 
 <pre>
 (defun app (env)
