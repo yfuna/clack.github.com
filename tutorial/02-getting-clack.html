@@ -18,15 +18,15 @@
 
 <div id="main">
 
-<p>The easiest way to install Clack is to take advantage of <a href="http://beta.quicklisp.org/">Quicklisp</a>. Run the following code on your Lisp.</p>
+<p>The easiest way to install Clack is to use <a href="http://beta.quicklisp.org/">Quicklisp</a>. After installing Quicklisp, just use:</p>
 
 <pre>
 (ql:quickload :clack)
 </pre>
 
-<p>Then all libraries including dependencies will be downloaded and be installed automatically.</p>
+<p>on your Common Lisp implementation. This command downloads and installs Clack and all dependencies automatically.</p>
 
-<p>To verify that you have everything installed correctly, let's start a Clack server. You don't have to understand the following code now. It will be mentioned the next chapter.</p>
+<p>Run a Clack server on your REPL to check if everything is installed correctly:</p>
 
 <pre>
 (clack:clackup
@@ -39,9 +39,9 @@
     #<CLACK.HANDLER:<HANDLER> #x30200A102B3D>
 </pre>
 
-<p>Clack runs on localhost port 5000 by default. Open the URL <a href="http://127.0.0.1:5000/">http://127.0.0.1:5000/</a> on your browser and Clack show you "Hello, Clack!".</p>
+<p>Clack starts a web server on localhost port 5000 by default. Open your web browser and go to <a href="http://127.0.0.1:5000/">http://127.0.0.1:5000/</a>. You should get "Hello, Clack!" message. I'll explain the meaning of the above code in the next chapter. So don't worry about it for now.</p>
 
-<p>To stop the process, get back to REPL and execute the following code.</p>
+<p>To stop server, use:</p>
 
 <pre>
 (clack:stop *)
