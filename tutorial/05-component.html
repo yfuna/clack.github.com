@@ -18,7 +18,7 @@
 
 <div id="main">
 
-<p>I'm afraid but I told a lie in <a href="03-hello-world.html">Chapter 3</a>. <cite>--Clack application is just a function--.</cite> Honestly, <strong>it isn't always a function</strong>. See this example.</p>
+<p>Sorry. I told a lie in <a href="03-hello-world.html">Chapter 3</a>: <cite>Clack application is just a function.</cite> The truth is, <strong>it's not always a function</strong>. See this example:</p>
 
 <pre>
 ;; importing symbols for readability.
@@ -36,11 +36,11 @@
   (make-instance '&lt;sample-app&gt;))
 </pre>
 
-<p>This is much similar to what we've ever seen before, isn't it? The content in a function moved into a method <code>call</code>, and passing an instance of <code>&lt;sample-app&gt;</code> to <code>clackup</code>.</p>
+<p>This is much similar to what we saw before, isn't it? The content of the function has moved into the method <code>call</code>, and an instance of <code>&lt;sample-app&gt;</code> is now being pass to <code>clackup</code>.</p>
 
-<p>To summarize, <code>clackup</code> can take a function or an instance of a subclass of <code>&lt;component&gt;</code> as an application. All component must have <code>call</code>, it will be called for each requests.</p>
+<p>In a nutshell, <code>clackup</code> takes a function or an instance of a subclass of <code>&lt;component&gt;</code> as a Clack application implementation. All components must have <code>call</code> implemented, which is called for each request.</p>
 
-<p>You may not understand how should we handle it yet. I will mention a real example later, so you just remember <code>clackup</code> can take a CLOS instance now.</p>
+<p>You may not understand how we handle these stuffs yet. I will tell it using more practical examples in succeeding chapters. Please just remember <code>clackup</code> can take a CLOS instance for now.</p>
 
 </div>
 
