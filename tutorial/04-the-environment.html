@@ -47,11 +47,11 @@
   <dt><code>:request-method</code>  (Required, Keyword)</dt>
   <dd>The HTTP request method: <code> :GET</code> , <code> :HEAD</code> , <code> :OPTIONS</code> , <code> :PUT</code> , <code> :POST</code> , or <code> :DELETE</code> .</dd>
   <dt><code>:script-name</code>  (Required, String)</dt>
-  <dd>The initial portion of the request URL path that corresponds to the Clack application. The value of this key may be an empty string when you are accessing the application represented by the server's root URL. Otherwise, it is a non-empty string starting with a forward slash (<code> /</code> ).</dd>
+  <dd>The initial portion of the request URI path that corresponds to the Clack application. The value of this key may be an empty string when you are accessing the application represented by the server's root URI. Otherwise, it is a non-empty string starting with a forward slash (<code> /</code> ).</dd>
   <dt><code>:path-info</code>  (Required, String)</dt>
-  <dd>The remainder of the request URL path. The value of this key may be an empty string when you access the application represented by the server's root URL with no trailing slash.</ldd>
+  <dd>The remainder of the request URI path. The value of this key may be an empty string when you access the application represented by the server's root URI with no trailing slash.</ldd>
   <dt><code>:query-string</code>  (Optional, String)</dt>
-  <dd>The portion of the request URL that follows the <code> ?</code> , if any. This key may have no value at all while the key itself always exits.</dd>
+  <dd>The portion of the request URI that follows the <code> ?</code> , if any. This key may have no value at all while the key itself always exits.</dd>
   <dt><code>:server-name</code>  (Required, String)</dt>
   <dd>The resolved server name or the server IP address.</dd>
   <dt><code>:server-port</code>  (Required, Integer)</dt>
