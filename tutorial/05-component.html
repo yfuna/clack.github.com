@@ -36,11 +36,11 @@
   (make-instance '&lt;sample-app&gt;))
 </pre>
 
-<p>This is much similar to what we saw before, isn't it? The content of the function has moved into the method <code>call</code>, and an instance of <code>&lt;sample-app&gt;</code> is now being pass to <code>clackup</code>.</p>
+<p>This is much similar to what we saw before, isn't it? The differece is just about moving the content of the function into the method <code>call</code>, and passing an instance of <code>&lt;sample-app&gt;</code> to <code>clackup</code>.</p>
 
-<p>In a nutshell, <code>clackup</code> takes a function or an instance of a subclass of <code>&lt;component&gt;</code> as a Clack application implementation. All components must have <code>call</code> implemented, which is called for each request.</p>
+<p>In a nutshell, <code>clackup</code> takes a function or an instance of a subclass of <code>&lt;component&gt;</code> as a Clack application implementation. All components must implement <code>call</code>, which is called for each request.</p>
 
-<p>You may not understand how we handle these stuffs yet. I will tell it using more practical examples in succeeding chapters. Please just remember <code>clackup</code> can take a CLOS instance for now.</p>
+<p>You may not understand how to handle these stuffs yet. Don't worry. I'll tell it using more practical examples in the succeeding chapters. Please just remember <code>clackup</code> can take a CLOS instance for now.</p>
 
 </div>
 
