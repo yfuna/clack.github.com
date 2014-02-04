@@ -18,25 +18,25 @@
 
 <div id="main">
 
-<p>In this chapter, I introduce you a new term, <strong>middleware</strong>, which is the most important concept to know why Clack is so powerful and extensible without losing simplicity.</p>
+<p>In this chapter, I'd like to introduce you a new term, <strong>middleware</strong>, which is the most important concept to know why Clack is so powerful and extensible without losing simplicity.</p>
 
 <h3>What's Middleware?</h3>
 
-<p>Until now, an Application takes Request and just returns Response.</p>
+<p>Until now, what Clack applications do is just to take a request and return a response.</p>
 
 <img src="clack-middleware-1.png" width="480" height="300" />
 
-<p>I add Middlewares to this figure.</p>
+<p>I add middlewares to this figure.</p>
 
 <img src="clack-middleware-2.png" width="480" height="300" />
 
-<p>Middlewares are surrounding an Application. It takes a Request before Application takes it and gets the Response which Application generates. By wrapping an Application, a Middleware allows you to change the Application behaviour without rewriting the existing code.</p>
+<p>Middlewares are surrounding an application. It takes a request before application takes it and gets the response the application generates. By wrapping an application, a middleware allows you to change the application's behaviour without rewriting its code.</p>
 
 <p>This is a mechanism which has full of possibility.</p>
 
 <h3>Clack.Middleware</h3>
 
-<p>Writing a Clack Middleware is not so difficult for you if you are already familiar with Component.</p>
+<p>Writing a Clack middleware is not so difficult if you are already familiar with components.</p>
 
 <pre>
 ;; importing symbols for readability.
@@ -53,11 +53,11 @@
     ))
 </pre>
 
-<p>A Clack Middleware is a subclass of <code>&lt;middleware&gt;</code>. It also has a method <code>call</code>. It is really similar to <code>&lt;component&gt;</code>.</p>
+<p>A Clack middleware is a subclass of <code>&lt;middleware&gt;</code>. It also implements <code>call</code> method. It's really similar to <code>&lt;component&gt;</code>.</p>
 
-<p>Did you notice a function <code>call-next</code> in the above example? It means calling "the next" Component, Middleware, or Application. Remember the second figure in this page. Middlewares wrap another Component. By calling <code>call-next</code>, Middlewares can call another wrapped Component.</p>
+<p>Did you notice <code>call-next</code> function in the above example? It means calling "the next" component, middleware, or application. Take a look at the second figure in this page again. Middlewares wrap components: middlewares and an application. By calling <code>call-next</code>, the middlewares can call another component in the "multi-shell" structure.</p>
 
-<p>The beauty of Middlewares is that they can be reused among web applications. In the next chapter, I'll introduce you a real example of a Middleware.</p>
+<p>The beauty of middlewares is that they can be reused among web applications. In the next chapter, I'll introduce you a real example of a middleware.</p>
 
 </div>
 
