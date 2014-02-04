@@ -18,21 +18,21 @@
 
 <div id="main">
 
-<p>Clack provides these useful middlewares.</p>
+<p>Clack contains these useful middlewares.</p>
 
 <ul>
-  <li><a href="http://clacklisp.org/doc/clack.middleware.static.html">Clack.Middleware.Static</a> - Serves static files.</li>
-  <li><a href="http://clacklisp.org/doc/clack.middleware.logger.html">Clack.Middleware.Logger</a> - Logging in Clack Application or Middleware.</li>
-  <li><a href="http://clacklisp.org/doc/clack.middleware.session.html">Clack.Middleware.Session</a> - Session management.</li>
-  <li><a href="http://clacklisp.org/doc/clack.middleware.conditional.html">Clack.Middleware.Conditional</a> - Conditional wrapper for Clack middleware.</li>
-  <li><a href="http://clacklisp.org/doc/clack.middleware.auth.basic.html">Clack.Middleware.Auth.Basic</a> - Basic Authentication Middleware.</li>
+  <li><a href="http://clacklisp.org/doc/clack.middleware.static.html">Clack.Middleware.Static</a> - Returns static files.</li>
+  <li><a href="http://clacklisp.org/doc/clack.middleware.logger.html">Clack.Middleware.Logger</a> - Logs behaviours of Clack application or middlewares.</li>
+  <li><a href="http://clacklisp.org/doc/clack.middleware.session.html">Clack.Middleware.Session</a> - Manages sessions.</li>
+  <li><a href="http://clacklisp.org/doc/clack.middleware.conditional.html">Clack.Middleware.Conditional</a> - Provides conditional wrapper.</li>
+  <li><a href="http://clacklisp.org/doc/clack.middleware.auth.basic.html">Clack.Middleware.Auth.Basic</a> - Provides basic authentication.</li>
 </ul>
 
-<p>And also Clack.Middleware.Csrf which protects from CSRF attacks is provided as a Contrib package.</p>
+<p>Clack.Middleware.Csrf which protects from CSRF attacks is also available as a contrib package.</p>
 
-<p>In this chapter, I introduce <a href="http://clacklisp.org/doc/clack.middleware.static.html">Clack.Middleware.Static</a> as a real example of a Clack Middleware. It serves static files if the given request matches with the specified pattern.</p>
+<p>In this chapter, I would like to introduce <a href="http://clacklisp.org/doc/clack.middleware.static.html">Clack.Middleware.Static</a> as a real example of a Clack middleware. It returns static files if the given request matches with the specified pattern.</p>
 
-<p>Here's an example source code how to use it. This wrapped application returns "Hello, Clack!" for most of requests, but only when the request path matches <code>/public/*</code>, a file in <code>/path/to/static-files/*</code> will be served.</p>
+<p>Here's an example source code to show how to use it. This wrapped application returns "Hello, Clack!" for most of requests, but only when the request path matches <code>/public/*</code>, a file in <code>/path/to/static-files/*</code> will be served.</p>
 
 <pre>
 (import '(clack:wrap
@@ -53,7 +53,7 @@
   (wrap mw #'app))
 </pre>
 
-<p>Middleware has a method <code>wrap</code> which for generating a wrapped application. Application can also be wrapped multiple Middlewares. For that, call <code>wrap</code> multiple times, like this.</p>
+<p>Middlewares implement a method <code>wrap</code> which is for generating a wrapped application. An application can also be wrapped multiple Middlewares. For that, call <code>wrap</code> multiple times, like this.</p>
 
 <pre>
 (clack:clackup
@@ -62,7 +62,7 @@
       (wrap mw1 #'app))))
 </pre>
 
-<p>However, these nested <code>wrap</code>s are tedious. Clack has the solution to write it with a DSL style syntax. I'll mention it in the next chapter.</p>
+<p>However, these nested <code>wrap</code>s are tedious. Clack has the solution to write it with a DSL style syntax. That's the topic of the next chapter.</p>
 
 </div>
 
