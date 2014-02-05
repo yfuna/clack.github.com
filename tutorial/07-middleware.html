@@ -18,25 +18,25 @@
 
 <div id="main">
 
-<p>In this chapter, I'd like to introduce you a new term, <strong>middleware</strong>, which is the most important concept to know why Clack is so powerful and extensible without losing simplicity.</p>
+<p>In this chapter, I'd like to introduce a new term: <strong>middleware</strong>, which is the most important concept to understand why Clack is so powerful and extensible without losing simplicity.</p>
 
-<h3>What's Middleware?</h3>
+<h3>What's middleware?</h3>
 
-<p>Until now, what Clack applications do is just to take a request and return a response.</p>
+<p>So far, what Clack applications do is just to take a request and return a response.</p>
 
 <img src="clack-middleware-1.png" width="480" height="300" />
 
-<p>I add middlewares to this figure.</p>
+<p>Let's add middlewares to this figure.</p>
 
 <img src="clack-middleware-2.png" width="480" height="300" />
 
-<p>Middlewares are surrounding an application. It takes a request before application takes it and gets the response the application generates. By wrapping an application, a middleware allows you to change the application's behaviour without rewriting its code.</p>
+<p>The middlewares are surrounding the application. They take requests before the application takes them and receive the responses the application generates. By wrapping the application, the middlewares enable you to change the application's behaviour without modifying the application's code.</p>
 
-<p>This is a mechanism which has full of possibility.</p>
+<p>This mechanism has the potential to improve web application development.</p>
 
 <h3>Clack.Middleware</h3>
 
-<p>Writing a Clack middleware is not so difficult if you are already familiar with components.</p>
+<p>Writing a Clack middleware is not so difficult once you understand Clack component.</p>
 
 <pre>
 ;; importing symbols for readability.
@@ -53,11 +53,11 @@
     ))
 </pre>
 
-<p>A Clack middleware is a subclass of <code>&lt;middleware&gt;</code>. It also implements <code>call</code> method. It's really similar to <code>&lt;component&gt;</code>.</p>
+<p>A Clack middleware is a subclass of <code>&lt;middleware&gt;</code>, which has a similar structure as components. For example, middlewares also implement <code>call</code> methods.</p>
 
-<p>Did you notice <code>call-next</code> function in the above example? It means calling "the next" component, middleware, or application. Take a look at the second figure in this page again. Middlewares wrap components: middlewares and an application. By calling <code>call-next</code>, the middlewares can call another component in the "multi-shell" structure.</p>
+<p>Have you noticed <code>call-next</code> function in the above example? It calls "the next" component, middleware, or application. Take a look at the second figure in this page again. Middlewares wrap components such as other middlewares and applications. By calling <code>call-next</code>, middlewares can call another component in the "multi-shell" structure.</p>
 
-<p>The beauty of middlewares is that they can be reused among web applications. In the next chapter, I'll introduce you a real example of a middleware.</p>
+<p>The beauty of middleware is that it can be reused among web applications. In the next chapter, I'll show you a real example of a middleware.</p>
 
 </div>
 
