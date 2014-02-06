@@ -53,7 +53,7 @@
   (wrap mw #'app))
 </pre>
 
-<p>Every middleware implements a <code>wrap</code> method, which provides a mechanism to generate wrapped applications. An application can be wrapped by multiple middlewares through calling <code>wrap</code>s back-to-back:</p>
+<p>Every middleware implements a <code>wrap</code> method, which provides a mechanism to generate wrapped applications. An application can be wrapped by multiple middlewares through calling <code>wrap</code>s consecutively:</p>
 
 <pre>
 (clack:clackup
