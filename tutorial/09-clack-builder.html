@@ -18,7 +18,7 @@
 
 <div id="main">
 
-<p>In this chapter, I will explain you about <a href="http://clacklisp.org/doc/clack.builder.html">Clack.Builder</a>, or the most common way to use Clack middleware. Clack.Builder calls <code>wrap</code>s of middlewares sequentially and returns a function, which you can use as a Clack application.</p>
+<p>In this chapter, I would like to introduce <a href="http://clacklisp.org/doc/clack.builder.html">Clack.Builder</a>, or the most common way to use Clack middlewares. Clack.Builder calls middlewares' <code>wrap</code>s sequentially and returns a function, which you can use as a Clack application.</p>
 
 <p>The syntax of Clack.Builder is easy:</p>
 
@@ -29,7 +29,7 @@
 ;=> Function (as an Application)
 </pre>
 
-<p>Here's a real example:</p>
+<p>For example,</p>
 
 <pre>
 (import 'clack.builder:builder)
